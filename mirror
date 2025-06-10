@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cracks in Reflection</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background-color: #0b0b0e;
+      color: #d0c7ff;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .veil-logo {
+      max-width: 80px;
+      margin: 20px auto;
+      opacity: 0.2;
+    }
+    .code {
+      font-family: 'Courier New', monospace;
+      color: #aaaaff;
+      margin: 20px 0;
+    }
+    .hint {
+      margin-top: 40px;
+      font-size: 1.1em;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cracks in the Reflection</h1>
+
+  <p>Someone saw the blink.</p>
+  <p>Someone heard the whisper behind the mirror.</p>
+
+  <div class="code">
+    01001111 01101110 01100101<br>
+    00100000 01101111 01100110<br>
+    00100000 01111001 01101111 01110101<br>
+    00100000 01100001 01101100 01110010 01100101 01100001 01100100 01111001<br>
+    01101011 01101110 01101111 01110111 01110011<br>
+    <br>
+    <em>He’s not alone.</em>
+  </div>
+
+  <p class="hint">Watch the clock on the next visit. Time… is narrowing.</p>
+
+  <img src="assets/veilcraft-logo.png" alt="Veilcraft Logo" class="veil-logo">
+
+  <p style="margin-top: 60px; font-size: 0.9em; color: #555;">
+    <em>“Only one of you looked back.”</em>
+  </p>
+</body>
+</html>
