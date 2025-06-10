@@ -6,15 +6,33 @@
   <title>Veilcraft | The Fifth Seat</title>
   <link rel="stylesheet" href="assets/style.css">
   <script defer src="assets/script.js"></script>
+  <style>
+    body {
+      background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .veilcraft-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
   <div class="veilcraft-container">
-    <img src="assets/logo.png" alt="Veilcraft Logo" class="logo">
+    <img src="assets/veilcraft-logo.png" alt="Veilcraft Logo" class="logo">
     <h1 class="message">The fire sleeps... but the fifth seat is still warm.</h1>
     <div id="countdown"></div>
     <div id="riddle" style="display: none;">
       <p>Decode the memory. Say the name.</p>
-      <code>c2F5b2RheQ==</code>
+      <code>c2F5b2RheQ==</code> <!-- "sayoday" base64 encoded -->
       <input type="text" id="answer" placeholder="Enter your answer">
       <button onclick="checkAnswer()">Submit</button>
     </div>
