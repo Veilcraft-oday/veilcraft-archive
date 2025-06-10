@@ -69,6 +69,7 @@ a:hover {
   margin-bottom: 3rem;
 }
 
+
 /* Hidden container (for riddles, scripts, etc.) */
 .hidden {
   display: none;
@@ -101,3 +102,39 @@ a:hover {
   animation: flicker 2s infinite;
 }
 
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: -2px 0 blue;
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    text-shadow: 2px 0 green;
+    transform: translate(1px, -1px);
+  }
+  60% {
+    text-shadow: -2px 0 magenta;
+    transform: translate(-1px, 0);
+  }
+  80% {
+    text-shadow: 2px 0 cyan;
+    transform: translate(1px, 1px);
+  }
+  100% {
+    text-shadow: 0 0 transparent;
+    transform: translate(0);
+  }
+}
+
+.mystery-line {
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.8;
+  animation: glitch 2s infinite;
+}
