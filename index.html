@@ -1,36 +1,75 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veilcraft: The Fifth is Watching</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Veilcraft | The Fifth Seat</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
-  <main>
-    <section class="riddle-block">
-      <h1>The Fifth is Watching</h1>
-      <p>"He only appears when the page forgets it’s being watched."</p>
-      <p>Enter the name below to continue:</p>
-      <input type="text" id="answer" placeholder="Enter name...">
+  <div class="veilcraft-container">
+    <img src="assets/veilcraft-logo.png" alt="Veilcraft Logo" class="logo">
+    <h1 class="message">The fire sleeps... but the fifth seat is still warm.</h1>
+    <div id="countdown"></div>
+    <div id="riddle" style="display: none;">
+      <p>Decode the memory. Say the name.</p>
+      <code>c2F5b2RheQ==</code> <!-- "sayoday" base64 encoded -->
+      <input type="text" id="answer" placeholder="Enter your answer">
       <button onclick="checkAnswer()">Submit</button>
-      <p id="feedback"></p>
-    </section>
-  </main>
-
-  <!-- HIDDEN BASE64 RIDDLE -->
-  <!-- UmVmbGVjdCB0aGUgb25lIHdobyBjYWxscyB0aGUgbmFtZSB3aXRob3V0IHNwZWFraW5n -->
-
-  <script>
-    function checkAnswer() {
-      const input = document.getElementById("answer").value.toLowerCase();
-      const feedback = document.getElementById("feedback");
-      if (input === "oday") {
-        window.location.href = "mirror.html";
-      } else {
-        feedback.textContent = "That name echoes no answer here.";
-      }
-    }
-  </script>
+    </div>
+  </div>
 </body>
 </html>
+
+<!-- reward.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Worthy</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="veilcraft-container">
+    <h1 class="message">You have proven worthy.</h1>
+    <img src="assets/fifth-seat-art.png" alt="The Fifth Seat">
+    <!-- come and hear odays whisper: https://discord.gg/MNXxsbYV -->
+  </div>
+</body>
+</html>
+
+/* script.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const countdownEl = document.getElementById("countdown");
+  const riddleEl = document.getElementById("riddle");
+
+  const targetDate = new Date("2025-06-15T09:00:00").getTime();
+
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      clearInterval(interval);
+      countdownEl.style.display = "none";
+      riddleEl.style.display = "block";
+      return;
+    }
+
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+});
+
+function checkAnswer() {
+  const input = document.getElementById("answer").value.trim().toLowerCase();
+  if (input === "sayoday") {
+    window.location.href = "reward.html";
+  } else {
+    alert("Incorrect. Look deeper.");
+  }
+}
