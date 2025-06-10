@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Veilcraft</title>
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #eee;
-      font-family: monospace;
-      text-align: center;
-      padding: 50px;
-    }
-    .logo {
-      width: 80px;
-      margin-bottom: 40px;
-    }
-    .hidden {
-      font-size: 0.001px;
-      color: #0f0f0f;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veilcraft: The Fifth is Watching</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <img src="logo.png" alt="Veilcraft" class="logo">
-  <h1>One Flame Still Burns</h1>
-  <p>The veil is thin. One riddle releases each week...</p>
-  <p>Next unlocking in: <strong>00:05:42:17</strong></p>
-  
-  <div class="hidden">CLUE: The password is somewhere in the source…</div>
+  <main>
+    <section class="riddle-block">
+      <h1>The Fifth is Watching</h1>
+      <p>"He only appears when the page forgets it’s being watched."</p>
+      <p>Enter the name below to continue:</p>
+      <input type="text" id="answer" placeholder="Enter name...">
+      <button onclick="checkAnswer()">Submit</button>
+      <p id="feedback"></p>
+    </section>
+  </main>
+
+  <!-- HIDDEN BASE64 RIDDLE -->
+  <!-- UmVmbGVjdCB0aGUgb25lIHdobyBjYWxscyB0aGUgbmFtZSB3aXRob3V0IHNwZWFraW5n -->
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.toLowerCase();
+      const feedback = document.getElementById("feedback");
+      if (input === "oday") {
+        window.location.href = "mirror.html";
+      } else {
+        feedback.textContent = "That name echoes no answer here.";
+      }
+    }
+  </script>
 </body>
-<!-- Is Oday watching? Decode: R2V0IHRoZSBrZXkgZnJvbSB0aGUgY2RuLg== -->
 </html>
