@@ -1,0 +1,96 @@
+/* ===== Veilcraft ARG Style Sheet ===== */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #0c0c0c;
+  color: #e0e0e0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  color: #a183ff;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Logo */
+.logo {
+  max-width: 200px;
+  margin-bottom: 2rem;
+  opacity: 0.7;
+}
+
+/* Countdown */
+.countdown {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #a183ff;
+  margin: 2rem 0;
+}
+
+/* Cryptic Message */
+.message {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ccc;
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+/* Hidden container (for riddles, scripts, etc.) */
+.hidden {
+  display: none;
+}
+
+/* Button Style (if needed later) */
+.btn {
+  padding: 0.8rem 1.6rem;
+  border: 2px solid #a183ff;
+  background-color: transparent;
+  color: #a183ff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #a183ff;
+  color: #000;
+}
+
+/* Subtle Veilcraft Animations */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.flicker {
+  animation: flicker 2s infinite;
+}
+
