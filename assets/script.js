@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("riddle-placeholder").innerHTML = `
   <div id="riddle">
     <p>Decode the memory. Say the name.</p>
-     <p> sayhisname:c2F5b2RheQ== </p>
+     <p> c2F5b2RheQ== </p>
     <input type="text" id="answer" placeholder="Enter your answer">
     <button onclick="checkAnswer()">Submit</button>
   </div>
