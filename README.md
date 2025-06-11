@@ -1,1 +1,1 @@
-# Oday speaks: "Don´t spoil it"
+# Oday speaks: "Don´t spoil the fun before it has begun ;)"
