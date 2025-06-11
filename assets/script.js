@@ -12,7 +12,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (distance <= 0) {
       clearInterval(interval);
       countdownEl.style.display = "none";
-      riddleEl.style.display = "block";
+      document.getElementById("riddle-placeholder").innerHTML = `
+  <div id="riddle">
+    <p>Decode the memory. Say the name.</p>
+    <code>c2F5b2RheQ==</code>
+    <input type="text" id="answer" placeholder="Enter your answer">
+    <button onclick="checkAnswer()">Submit</button>
+  </div>
+`;
+
       return;
     }
 
