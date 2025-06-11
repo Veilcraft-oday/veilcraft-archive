@@ -18,7 +18,7 @@
       document.getElementById("timer").style.display = "none";
 
       // Dynamically load the riddle content
-      fetch("riddle.html")
+      fetch("assets/riddle1.html")
         .then((response) => response.text())
         .then((html) => {
           document.getElementById("content").innerHTML = html;
