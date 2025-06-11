@@ -32,6 +32,22 @@ document.addEventListener("DOMContentLoaded", function () {
     countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }, 1000);
 });
+// Try to autoplay on load
+window.addEventListener("load", () => {
+  const audio = document.getElementById("bg-audio");
+  if (audio) {
+    audio.play().catch(() => {
+      // Wait for user interaction
+      const resumeAudio = () => {
+        audio.play();
+        document.removeEventListener("click", resumeAudio);
+        document.removeEventListener("keydown", resumeAudio);
+      };
+      document.addEventListener("click", resumeAudio);
+      document.addEventListener("keydown", resumeAudio);
+    });
+  }
+});
 
 function checkAnswer() {
   const input = document.getElementById("answer").value.trim().toLowerCase();
