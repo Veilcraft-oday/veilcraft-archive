@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("load", () => {
   const audio = document.getElementById("bg-audio");
   if (audio) {
+    audio.volume = 0.3; 
     audio.play().catch(() => {
-      // Wait for user interaction
       const resumeAudio = () => {
         audio.play();
         document.removeEventListener("click", resumeAudio);
