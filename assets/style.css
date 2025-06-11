@@ -25,6 +25,40 @@ a {
 a:hover {
   color: #ffffff;
 }
+#riddle input[type="text"] {
+  background-color: rgba(30, 30, 30, 0.9);
+  border: 1px solid #888;
+  padding: 10px 15px;
+  color: #f5f5f5;
+  font-family: monospace;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 80%;
+  margin: 10px 0;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+#riddle input[type="text"]:focus {
+  outline: none;
+  border-color: #b673f8;
+  background-color: rgba(60, 60, 60, 1);
+}
+
+#riddle button {
+  background-color: #b673f8;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Orbitron", sans-serif;
+}
+#riddle button:hover {
+  background-color: #d89cfc;
+}
 
 /* Layout */
 .container {
