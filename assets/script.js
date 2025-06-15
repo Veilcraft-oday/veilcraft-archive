@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const countdownEl = document.getElementById("countdown");
   const riddleEl = document.getElementById("riddle");
 
-  const targetDate = new Date("2025-06-14T09:00:00").getTime();
+  const targetDate = new Date("2025-06-21T09:00:00").getTime();
 
   const interval = setInterval(() => {
     const now = new Date().getTime();
