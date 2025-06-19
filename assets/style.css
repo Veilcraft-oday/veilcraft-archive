@@ -332,6 +332,29 @@ p {
   animation: glitch 2s infinite;
   font-family: inherit;
 }
+/* === Ritual Phase Styling === */
+#ritual-phase {
+  display: none;
+  opacity: 0;
+  animation: fadeInContainer 1.5s ease forwards;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  font-family: inherit;
+}
+
+.fade-out-container {
+  animation: fadeOutContainer 1s ease forwards;
+}
+
+@keyframes fadeOutContainer {
+  to { opacity: 0; transform: scale(0.98); }
+}
 
 /* === Responsive for smaller viewports === */
 @media (max-height: 700px) {
