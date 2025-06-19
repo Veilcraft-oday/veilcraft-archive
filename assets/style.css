@@ -141,7 +141,7 @@ p {
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
+  background: url('/bg-veilcraft.png') no-repeat center center fixed;
   background-size: cover;
 }
 
