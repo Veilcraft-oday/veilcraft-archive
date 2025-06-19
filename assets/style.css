@@ -16,8 +16,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
-  background-size: cover;
+  
 }
 
 /* === Typography and Content === */
@@ -143,6 +142,8 @@ p {
   height: 100%;
   z-index: 1;
   overflow: hidden;
+  background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .gradient-sphere {
