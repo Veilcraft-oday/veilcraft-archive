@@ -1,41 +1,68 @@
-<!-- reward.html -->
+<!-- SLTI.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Worthy again</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <script defer src="assets/rewardscript.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worthy Again</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/slti-script.js"></script>
   <style>
-    body {
-      background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    .artwork {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 30px auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      transition: opacity 1.5s ease;
     }
-  
+    .fade-out {
+      opacity: 0;
+    }
+    #ritual-btn {
+      display: none;
+      margin-top: 2rem;
+    }
+    #error-message {
+      color: red;
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <div class="veilcraft-container">
+  <div class="veilcraft-container fade-in">
     <h1 class="message">You have proven worthy again... for now</h1>
-    <p class="mystery-line">Now anser the question the image is asking.<br>
-    Tell the answer to my little helper.
+    <p class="mystery-line" id="challenge-text">
+      Now answer the question the image is asking.<br>
+      Tell the answer to my little helper.
     </p>
-   <img src="assets/fifth-seat-art.png" alt="The Fifth Seat Artwork" class="artwork">
-  </div>
-   <div class="gradient-background">
-        <div class="gradient-sphere sphere-1"></div>
-        <div class="gradient-sphere sphere-2"></div>
-        <div class="gradient-sphere sphere-3"></div>
-        <div class="glow"></div>
-        <div class="grid-overlay"></div>
-        <div class="noise-overlay"></div>
-        <div class="particles-container" id="particles-container"></div>
-    </div>
 
-  
+    <img src="/veilcraft-archive/assets/fifth-seat-art.png" alt="The Fifth Seat Artwork" class="artwork" id="ritual-image" />
+
+    <input type="text" id="final-answer" placeholder="Your answer..." />
+    <button onclick="checkFinalAnswer()">Submit</button>
+    <p id="error-message">Incorrect. Think deeper.</p>
+
+    <a
+      href="https://canary.discord.com/channels/1381795958848880701/1381795963626066173"
+      target="_blank"
+      id="ritual-btn"
+      class="btn"
+    >
+      Start the Ritual
+    </a>
+  </div>
+
+  <!-- Background Layers -->
+  <div class="gradient-background">
+    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
+  </div>
 </body>
 </html>
