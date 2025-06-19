@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Particle setup
+  // Particle effects
   const particlesContainer = document.getElementById("particles-container");
   const particleCount = 80;
 
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       particle.style.transition = `all ${duration}s linear`;
       particle.style.opacity = Math.random() * 0.3 + 0.1;
-
       const moveX = pos.x + (Math.random() * 20 - 10);
       const moveY = pos.y - Math.random() * 30;
       particle.style.left = `${moveX}%`;
@@ -60,62 +59,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay * 1000);
   }
 
-  // Mouse interaction
+  // Mouse reactive background
   document.addEventListener("mousemove", (e) => {
-    const mouseX = (e.clientX / window.innerWidth) * 100;
-    const mouseY = (e.clientY / window.innerHeight) * 100;
-
-    const particle = document.createElement("div");
-    particle.className = "particle";
-    const size = Math.random() * 4 + 2;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.left = `${mouseX}%`;
-    particle.style.top = `${mouseY}%`;
-    particle.style.opacity = "0.6";
-    particlesContainer.appendChild(particle);
-
-    setTimeout(() => {
-      particle.style.transition = "all 2s ease-out";
-      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
-      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
-      particle.style.opacity = "0";
-
-      setTimeout(() => {
-        particle.remove();
-      }, 2000);
-    }, 10);
-
+    const mouseX = (e.clientX / window.innerWidth - 0.5) * 5;
+    const mouseY = (e.clientY / window.innerHeight - 0.5) * 5;
     const spheres = document.querySelectorAll(".gradient-sphere");
-    const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
-    const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
 
     spheres.forEach((sphere) => {
-      sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      sphere.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
     });
+
+    const cursorParticle = document.createElement("div");
+    cursorParticle.className = "particle";
+    const size = Math.random() * 4 + 2;
+    cursorParticle.style.width = `${size}px`;
+    cursorParticle.style.height = `${size}px`;
+    cursorParticle.style.left = `${(e.clientX / window.innerWidth) * 100}%`;
+    cursorParticle.style.top = `${(e.clientY / window.innerHeight) * 100}%`;
+    cursorParticle.style.opacity = "0.6";
+    particlesContainer.appendChild(cursorParticle);
+
+    setTimeout(() => {
+      cursorParticle.style.transition = "all 2s ease-out";
+      cursorParticle.style.left = `${(e.clientX / window.innerWidth) * 100 + (Math.random() * 10 - 5)}%`;
+      cursorParticle.style.top = `${(e.clientY / window.innerHeight) * 100 + (Math.random() * 10 - 5)}%`;
+      cursorParticle.style.opacity = "0";
+
+      setTimeout(() => {
+        cursorParticle.remove();
+      }, 2000);
+    }, 10);
   });
 });
 
-// Simple password match
+// === Password Check and Ritual Reveal ===
 function checkFinalAnswer() {
   const input = document.getElementById("final-answer").value.trim().toLowerCase();
-  const correct = "renew";
-
   const errorMessage = document.getElementById("error-message");
   const image = document.getElementById("ritual-image");
   const ritualBtn = document.getElementById("ritual-btn");
   const challengeText = document.getElementById("challenge-text");
+  const submitBtn = document.getElementById("submit-btn");
+  const inputField = document.getElementById("final-answer");
 
-  if (input === correct) {
+  if (input === "renew") {
+    // Hide unnecessary elements
     errorMessage.style.display = "none";
     image.classList.add("fade-out");
+    submitBtn.classList.add("fade-out");
+    inputField.classList.add("fade-out");
 
+    // Update message
     challengeText.innerHTML = `
       Congratulations!<br>
       Now gather your friends and start the Ritual by clicking here.<br>
       <em>But beware — we will need all of you.</em>
     `;
-    ritualBtn.style.display = "inline-block";
+
+    // Hide scrollbar
+    document.querySelector(".veilcraft-container").style.overflowY = "hidden";
+
+    // Show ritual button with fade
+    setTimeout(() => {
+      ritualBtn.style.display = "inline-block";
+      ritualBtn.classList.add("fade-in");
+    }, 1000);
   } else {
     errorMessage.style.display = "block";
   }
