@@ -67,6 +67,8 @@ p {
   z-index: 10;
   opacity: 0;
   animation: fadeInContainer 1.5s ease 0.5s forwards;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 @keyframes fadeInContainer {
@@ -74,7 +76,7 @@ p {
 }
 
 /* === Input and Button Styles === */
-#riddle input[type="text"] {
+#riddle input[type="text"], #final-answer {
   background-color: rgba(30, 30, 30, 0.9);
   border: 1px solid #888;
   padding: 10px 15px;
@@ -89,7 +91,7 @@ p {
   cursor: text;
 }
 
-#riddle input[type="text"]:focus {
+#riddle input[type="text"]:focus, #final-answer:focus {
   outline: 2px solid #b673f8;
   background-color: rgba(60, 60, 60, 1);
 }
@@ -280,4 +282,23 @@ p {
   font-style: italic;
   opacity: 0.8;
   animation: glitch 2s infinite;
+}
+
+/* === Responsive for smaller viewports === */
+@media (max-height: 700px) {
+  .veilcraft-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .mystery-line {
+    font-size: 1rem;
+  }
+
+  .artwork {
+    max-height: 40vh;
+  }
 }
