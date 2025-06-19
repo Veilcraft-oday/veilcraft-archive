@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Particle effect setup
+  // Particle setup
   const particlesContainer = document.getElementById("particles-container");
   const particleCount = 80;
 
@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay * 1000);
   }
 
+  // Mouse interaction
   document.addEventListener("mousemove", (e) => {
     const mouseX = (e.clientX / window.innerWidth) * 100;
     const mouseY = (e.clientY / window.innerHeight) * 100;
@@ -95,18 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Secure password check with hash
-async function checkFinalAnswer() {
+// Simple password match
+function checkFinalAnswer() {
   const input = document.getElementById("final-answer").value.trim().toLowerCase();
-  const hashed = await hashInput(input);
-  const expectedHash = "f4b96d97a734c2cb03f54ee5a3004d6aa4f7c5b949bc6c227c78f9e20c84370f"; // SHA-256 of "renew"
+  const correct = "renew";
 
   const errorMessage = document.getElementById("error-message");
   const image = document.getElementById("ritual-image");
   const ritualBtn = document.getElementById("ritual-btn");
   const challengeText = document.getElementById("challenge-text");
 
-  if (hashed === expectedHash) {
+  if (input === correct) {
     errorMessage.style.display = "none";
     image.classList.add("fade-out");
 
@@ -119,13 +119,4 @@ async function checkFinalAnswer() {
   } else {
     errorMessage.style.display = "block";
   }
-}
-
-async function hashInput(input) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(input);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(hashBuffer))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
 }
