@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Answer check (now using plain text)
 function checkAnswer() {
   const input = document.getElementById("answer").value.trim().toLowerCase();
-  const correctAnswer = "the brood";
+  const correctAnswer = "sultai";
 
   if (input === correctAnswer) {
     sessionStorage.setItem("veilcraft_passed", "true");
