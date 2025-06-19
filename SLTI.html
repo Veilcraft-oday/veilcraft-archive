@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Worthy Again</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
   <script defer src="assets/slti-script.js"></script>
   <style>
     .artwork {
@@ -17,20 +17,14 @@
       border-radius: 8px;
       transition: opacity 1.5s ease;
     }
-    .fade-out {
-      opacity: 0;
-    }
-    #ritual-btn {
-      display: none;
-      margin-top: 2rem;
-    }
-    #error-message {
-      color: red;
-      display: none;
-    }
   </style>
 </head>
 <body>
+  <audio id="bg-audio" autoplay loop preload="auto">
+    <source src="assets/whisper.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="veilcraft-container fade-in">
     <h1 class="message">You have proven worthy again... for now</h1>
     <p class="mystery-line" id="challenge-text">
@@ -38,10 +32,10 @@
       Tell the answer to my little helper.
     </p>
 
-    <img src="/veilcraft-archive/assets/fifth-seat-art.png" alt="The Fifth Seat Artwork" class="artwork" id="ritual-image" />
+    <img src="assets/fifth-seat-art.png" alt="The Fifth Seat Artwork" class="artwork" id="ritual-image" />
 
     <input type="text" id="final-answer" placeholder="Your answer..." />
-    <button onclick="checkFinalAnswer()">Submit</button>
+    <button onclick="checkFinalAnswer()" id="submit-btn">Submit</button>
     <p id="error-message">Incorrect. Think deeper.</p>
 
     <a
@@ -64,71 +58,5 @@
     <div class="noise-overlay" aria-hidden="true"></div>
     <div class="particles-container" id="particles-container" aria-hidden="true"></div>
   </div>
-
-  <!-- Audio -->
-  <audio id="bg-audio" autoplay loop preload="auto">
-    <source src="assets/whisper.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Mouse interaction script -->
-  <script>
-    // Autoplay fallback
-    window.addEventListener("load", () => {
-      const audio = document.getElementById("bg-audio");
-      if (audio) {
-        audio.volume = 0.3;
-        audio.play().catch(() => {
-          const resumeAudio = () => {
-            audio.play();
-            document.removeEventListener("click", resumeAudio);
-            document.removeEventListener("keydown", resumeAudio);
-          };
-          document.addEventListener("click", resumeAudio);
-          document.addEventListener("keydown", resumeAudio);
-        });
-      }
-    });
-
-    // Particle interaction
-    document.addEventListener("mousemove", (e) => {
-      const mouseX = (e.clientX / window.innerWidth) * 100;
-      const mouseY = (e.clientY / window.innerHeight) * 100;
-
-      const particle = document.createElement("div");
-      particle.className = "particle";
-
-      const size = Math.random() * 4 + 2;
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-      particle.style.left = `${mouseX}%`;
-      particle.style.top = `${mouseY}%`;
-      particle.style.opacity = "0.6";
-
-      const container = document.getElementById("particles-container");
-      if (container) {
-        container.appendChild(particle);
-      }
-
-      setTimeout(() => {
-        particle.style.transition = "all 2s ease-out";
-        particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
-        particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
-        particle.style.opacity = "0";
-
-        setTimeout(() => {
-          particle.remove();
-        }, 2000);
-      }, 10);
-
-      const spheres = document.querySelectorAll(".gradient-sphere");
-      const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
-      const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
-
-      spheres.forEach((sphere) => {
-        sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
-      });
-    });
-  </script>
 </body>
 </html>
