@@ -12,10 +12,12 @@ html, body {
   background-color: #050505;
   color: white;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
+  scroll-behavior: smooth;
 }
 
 /* === Typography and Content === */
