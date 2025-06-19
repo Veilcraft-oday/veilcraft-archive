@@ -96,33 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
 function checkFinalAnswer() {
   const input = document.getElementById("final-answer").value.trim().toLowerCase();
   const errorMessage = document.getElementById("error-message");
-  const image = document.getElementById("ritual-image");
-  const ritualBtn = document.getElementById("ritual-btn");
-  const challengeText = document.getElementById("challenge-text");
-  const submitBtn = document.getElementById("submit-btn");
-  const inputField = document.getElementById("final-answer");
 
   if (input === "renew") {
-    // Hide unnecessary elements
     errorMessage.style.display = "none";
-    image.classList.add("fade-out");
-    submitBtn.classList.add("fade-out");
-    inputField.classList.add("fade-out");
 
-    // Update message
-    challengeText.innerHTML = `
-      Congratulations!<br>
-      Now gather your friends and start the Ritual by clicking here.<br>
-      <em>But beware — we will need all of you.</em>
-    `;
+    const initial = document.getElementById("initial-phase");
+    const ritual = document.getElementById("ritual-phase");
 
-    // Hide scrollbar
-    document.querySelector(".veilcraft-container").style.overflowY = "hidden";
+    initial.classList.add("fade-out-container");
 
-    // Show ritual button with fade
+    // Delay to wait for fade-out, then switch containers
     setTimeout(() => {
-      ritualBtn.style.display = "inline-block";
-      ritualBtn.classList.add("fade-in");
+      initial.style.display = "none";
+      ritual.style.display = "block";
+      document.body.style.overflow = "hidden";
     }, 1000);
   } else {
     errorMessage.style.display = "block";
