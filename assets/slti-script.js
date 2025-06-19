@@ -26,3 +26,9 @@ async function checkFinalAnswer() {
     error.style.display = "block";
   }
 }
+
+ window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("final-answer")?.scrollIntoView({ behavior: "smooth" });
+    }, 2000);
+  });
