@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Music autoplay with fallback
+  // === Audio Setup ===
   const audio = document.getElementById("bg-audio");
   if (audio) {
     audio.volume = 0.3;
@@ -14,13 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Particle effects
+  // === Particle Setup ===
   const particlesContainer = document.getElementById("particles-container");
   const particleCount = 80;
-
-  for (let i = 0; i < particleCount; i++) {
-    createParticle();
-  }
+  for (let i = 0; i < particleCount; i++) createParticle();
 
   function createParticle() {
     const particle = document.createElement("div");
@@ -59,59 +56,61 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay * 1000);
   }
 
-  // Mouse reactive background
+  // === Mouse Interaction ===
   document.addEventListener("mousemove", (e) => {
-    const mouseX = (e.clientX / window.innerWidth - 0.5) * 5;
-    const mouseY = (e.clientY / window.innerHeight - 0.5) * 5;
-    const spheres = document.querySelectorAll(".gradient-sphere");
-
-    spheres.forEach((sphere) => {
-      sphere.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    });
-
-    const cursorParticle = document.createElement("div");
-    cursorParticle.className = "particle";
+    const mouseX = (e.clientX / window.innerWidth) * 100;
+    const mouseY = (e.clientY / window.innerHeight) * 100;
+    const particle = document.createElement("div");
+    particle.className = "particle";
     const size = Math.random() * 4 + 2;
-    cursorParticle.style.width = `${size}px`;
-    cursorParticle.style.height = `${size}px`;
-    cursorParticle.style.left = `${(e.clientX / window.innerWidth) * 100}%`;
-    cursorParticle.style.top = `${(e.clientY / window.innerHeight) * 100}%`;
-    cursorParticle.style.opacity = "0.6";
-    particlesContainer.appendChild(cursorParticle);
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${mouseX}%`;
+    particle.style.top = `${mouseY}%`;
+    particle.style.opacity = "0.6";
+    particlesContainer.appendChild(particle);
 
     setTimeout(() => {
-      cursorParticle.style.transition = "all 2s ease-out";
-      cursorParticle.style.left = `${(e.clientX / window.innerWidth) * 100 + (Math.random() * 10 - 5)}%`;
-      cursorParticle.style.top = `${(e.clientY / window.innerHeight) * 100 + (Math.random() * 10 - 5)}%`;
-      cursorParticle.style.opacity = "0";
-
-      setTimeout(() => {
-        cursorParticle.remove();
-      }, 2000);
+      particle.style.transition = "all 2s ease-out";
+      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
+      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+      particle.style.opacity = "0";
+      setTimeout(() => particle.remove(), 2000);
     }, 10);
+
+    const spheres = document.querySelectorAll(".gradient-sphere");
+    const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
+    const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
+    spheres.forEach((s) => {
+      s.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
   });
+
+  // === Intro Scroll-to-Container ===
+  const scrollTarget = document.querySelector(".veilcraft-container");
+  if (scrollTarget) {
+    setTimeout(() => {
+      scrollTarget.scrollIntoView({ behavior: "smooth" });
+    }, 700); // Slight delay after DOM load
+  }
 });
 
-// === Password Check and Ritual Reveal ===
+// === Final Answer Validation ===
 function checkFinalAnswer() {
   const input = document.getElementById("final-answer").value.trim().toLowerCase();
+  const correctAnswer = "renew";
   const errorMessage = document.getElementById("error-message");
 
-  if (input === "renew") {
-    errorMessage.style.display = "none";
+  if (input === correctAnswer) {
+    document.getElementById("veilcraft-container").classList.add("fade-out");
 
-    const initial = document.getElementById("initial-phase");
-    const ritual = document.getElementById("ritual-phase");
-
-    initial.classList.add("fade-out-container");
-
-    // Delay to wait for fade-out, then switch containers
     setTimeout(() => {
-      initial.style.display = "none";
-      ritual.style.display = "block";
+      document.getElementById("veilcraft-container").style.display = "none";
+      document.getElementById("ritual-container").style.display = "block";
       document.body.style.overflow = "hidden";
     }, 1000);
   } else {
     errorMessage.style.display = "block";
+    errorMessage.scrollIntoView({ behavior: "smooth" });
   }
 }
