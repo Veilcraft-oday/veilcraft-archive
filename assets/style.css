@@ -96,21 +96,23 @@ p {
   background-color: rgba(60, 60, 60, 1);
 }
 
-#riddle button {
-  background-color: #b673f8;
+#riddle button, button {
+  background: linear-gradient(90deg, #b673f8, #5233ff);
   border: none;
   padding: 10px 20px;
   font-weight: bold;
   text-transform: uppercase;
   color: black;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
   font-family: "Orbitron", sans-serif;
+  box-shadow: 0 4px 20px rgba(182, 115, 248, 0.3);
 }
 
-#riddle button:hover {
-  background-color: #d89cfc;
+#riddle button:hover, button:hover {
+  background: linear-gradient(90deg, #d89cfc, #6f4fff);
+  transform: scale(1.03);
 }
 
 /* === Button Class === */
@@ -132,6 +134,24 @@ p {
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+}
+
+/* === Scrollbar Theme === */
+.veilcraft-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.veilcraft-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.veilcraft-container::-webkit-scrollbar-thumb {
+  background: #a183ff;
+  border-radius: 10px;
+}
+
+.veilcraft-container::-webkit-scrollbar-thumb:hover {
+  background: #d89cfc;
 }
 
 /* === Visual Effects === */
@@ -196,109 +216,4 @@ p {
 }
 
 .noise-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.05;
-  z-index: 5;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-.grid-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  z-index: 2;
-}
-
-.glow {
-  position: absolute;
-  width: 40vw;
-  height: 40vh;
-  background: radial-gradient(circle, rgba(72, 0, 255, 0.15), transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  animation: pulse 8s infinite alternate;
-  filter: blur(30px);
-}
-
-@keyframes pulse {
-  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
-  100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-.particles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* === Glitch and Flicker === */
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.flicker {
-  animation: flicker 2s infinite;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 0 red; transform: translate(0); }
-  20% { text-shadow: -2px 0 blue; transform: translate(-1px, 1px); }
-  40% { text-shadow: 2px 0 green; transform: translate(1px, -1px); }
-  60% { text-shadow: -2px 0 magenta; transform: translate(-1px, 0); }
-  80% { text-shadow: 2px 0 cyan; transform: translate(1px, 1px); }
-  100% { text-shadow: 0 0 transparent; transform: translate(0); }
-}
-
-.mystery-line {
-  font-size: 1.2rem;
-  color: #ccc;
-  text-align: center;
-  margin-top: 10px;
-  font-style: italic;
-  opacity: 0.8;
-  animation: glitch 2s infinite;
-}
-
-/* === Responsive for smaller viewports === */
-@media (max-height: 700px) {
-  .veilcraft-container {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .mystery-line {
-    font-size: 1rem;
-  }
-
-  .artwork {
-    max-height: 40vh;
-  }
-}
+  position: absol
