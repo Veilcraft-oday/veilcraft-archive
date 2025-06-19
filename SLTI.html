@@ -1,3 +1,4 @@
+<!-- SLTI.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,39 +18,63 @@
       border-radius: 8px;
       transition: opacity 1.5s ease;
     }
+
+    .fade-out {
+      opacity: 0 !important;
+      transition: opacity 1s ease;
+    }
+
+    #ritual-btn {
+      margin-top: 2rem;
+    }
+
+    #ritual-container {
+      display: none;
+      text-align: center;
+      max-width: 600px;
+      margin: auto;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      animation: fadeInContainer 1s ease forwards;
+    }
+
+    #error-message {
+      color: red;
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <audio id="bg-audio" autoplay loop preload="auto">
-    <source src="assets/whisper.mp3" type="audio/mpeg" />
+  <!-- Background Audio -->
+  <audio id="bg-audio" loop>
+    <source src="assets/audio/veilcraft-theme.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Initial Phase -->
-  <div class="veilcraft-container fade-in" id="initial-phase">
+  <!-- Primary Riddle Container -->
+  <div class="veilcraft-container" id="veilcraft-container">
     <h1 class="message">You have proven worthy again... for now</h1>
     <p class="mystery-line" id="challenge-text">
       Now answer the question the image is asking.<br>
       Tell the answer to my little helper.
     </p>
-    <img src="assets/fifth-seat-art.png" alt="The Fifth Seat Artwork" class="artwork" id="ritual-image" />
+
+    <img src="/veilcraft-archive/assets/fifth-seat-art.png" alt="The Fifth Seat Artwork" class="artwork" id="ritual-image" />
+
     <input type="text" id="final-answer" placeholder="Your answer..." />
-    <button onclick="checkFinalAnswer()" id="submit-btn">Submit</button>
-    <p id="error-message" style="color: red; display: none;">Incorrect. Think deeper.</p>
+    <button onclick="checkFinalAnswer()">Submit</button>
+    <p id="error-message">Incorrect. Think deeper.</p>
   </div>
 
-  <!-- Ritual Phase (Initially Hidden) -->
-  <div id="ritual-phase">
-    <h1 class="message">It has begun.</h1>
+  <!-- Ritual Success Container -->
+  <div id="ritual-container">
+    <h1 class="message">Congratulations!</h1>
     <p class="mystery-line">
-      Congratulations.<br>
-      Gather your friends and begin the Ritual.<br>
+      Now gather your friends and start the Ritual by clicking here.<br>
       <em>But beware — we will need all of you.</em>
     </p>
-    <a
-      href="https://canary.discord.com/channels/1381795958848880701/1381795963626066173"
-      target="_blank"
-      class="btn"
-    >
+    <a href="https://canary.discord.com/channels/1381795958848880701/1381795963626066173" target="_blank" class="btn" id="ritual-btn">
       Start the Ritual
     </a>
   </div>
@@ -65,5 +90,4 @@
     <div class="particles-container" id="particles-container" aria-hidden="true"></div>
   </div>
 </body>
-
 </html>
