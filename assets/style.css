@@ -61,4 +61,293 @@ p {
 
 /* === Containers === */
 .veilcraft-container {
-  background
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeInContainer 1.5s ease 0.5s forwards;
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: inherit;
+}
+
+@keyframes fadeInContainer {
+  to { opacity: 1; }
+}
+
+/* === Fade/Reveal Utilities === */
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+#ritual-btn {
+  display: none;
+  opacity: 0;
+}
+
+#ritual-btn.reveal {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* === Input and Button Styles === */
+#riddle input[type="text"], #final-answer {
+  background-color: rgba(30, 30, 30, 0.9);
+  border: 1px solid #a84ae2;
+  padding: 10px 15px;
+  color: #f5f5f5;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 80%;
+  margin: 10px 0;
+  text-align: center;
+  transition: border-color 0.3s;
+  cursor: text;
+}
+
+#riddle input[type="text"]:focus, #final-answer:focus {
+  outline: 2px solid #c073ff;
+  background-color: rgba(60, 60, 60, 1);
+}
+
+#riddle button, button {
+  background: linear-gradient(90deg, #a84ae2, #6737b4);
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(168, 74, 226, 0.4);
+}
+
+#riddle button:hover, button:hover {
+  background: linear-gradient(90deg, #c073ff, #8459e6);
+  transform: scale(1.03);
+}
+
+/* === Button Class === */
+.btn {
+  background: linear-gradient(90deg, #a84ae2, #6737b4);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(168, 74, 226, 0.3);
+  font-family: inherit;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(168, 74, 226, 0.4);
+}
+
+/* === Scrollbar Theme === */
+.veilcraft-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.veilcraft-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.veilcraft-container::-webkit-scrollbar-thumb {
+  background: #a84ae2;
+  border-radius: 10px;
+}
+
+.veilcraft-container::-webkit-scrollbar-thumb:hover {
+  background: #c073ff;
+}
+
+/* === Visual Effects === */
+.gradient-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background: url('/veilcraft-archive/assets/bg-veilcraft.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.gradient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.sphere-1 {
+  width: 20vw;
+  height: 20vw;
+  background: linear-gradient(40deg, rgba(54,1,63, 0.8), rgba(158,3,185, 0.4));
+  top: -10%;
+  left: -10%;
+  animation: float-1 15s ease-in-out infinite alternate;
+}
+
+.sphere-2 {
+  width: 25vw;
+  height: 25vw;
+  background: linear-gradient(240deg, rgba(54,1,63, 0.8), rgba(158,3,185, 0.4));
+  bottom: -20%;
+  right: -10%;
+  animation: float-2 18s ease-in-out infinite alternate;
+}
+
+.sphere-3 {
+  width: 10vw;
+  height: 10vw;
+  background: linear-gradient(120deg, rgba(54,1,63, 0.5), rgba(98, 216, 249, 0.3));
+  top: 60%;
+  left: 20%;
+  animation: float-3 20s ease-in-out infinite alternate;
+}
+
+@keyframes float-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10%, 10%) scale(1.1); }
+}
+
+@keyframes float-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-10%, -5%) scale(1.15); }
+}
+
+@keyframes float-3 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  100% { transform: translate(-5%, 10%) scale(1.05); opacity: 0.6; }
+}
+
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  z-index: 5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  z-index: 2;
+}
+
+.glow {
+  position: absolute;
+  width: 40vw;
+  height: 40vh;
+  background: radial-gradient(circle, rgba(72, 0, 255, 0.15), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: pulse 8s infinite alternate;
+  filter: blur(30px);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
+  100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* === Glitch and Flicker === */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.flicker {
+  animation: flicker 2s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red; transform: translate(0); }
+  20% { text-shadow: -2px 0 blue; transform: translate(-1px, 1px); }
+  40% { text-shadow: 2px 0 green; transform: translate(1px, -1px); }
+  60% { text-shadow: -2px 0 magenta; transform: translate(-1px, 0); }
+  80% { text-shadow: 2px 0 cyan; transform: translate(1px, 1px); }
+  100% { text-shadow: 0 0 transparent; transform: translate(0); }
+}
+
+.mystery-line {
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.8;
+  animation: glitch 2s infinite;
+  font-family: inherit;
+}
+
+/* === Responsive for smaller viewports === */
+@media (max-height: 700px) {
+  .veilcraft-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .mystery-line {
+    font-size: 1rem;
+  }
+
+  .artwork {
+    max-height: 40vh;
+  }
+}
