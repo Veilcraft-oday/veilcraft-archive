@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
       countdownEl.style.display = "none";
       document.getElementById("riddle-placeholder").innerHTML = `
   <div id="riddle">
-    <p>Decode the memory. Say the name.</p>
-     <p> c2F5b2RheQ== </p>
+    <p>The answer lies in the fifth seat.</p>
+     <p>Look beween the lines</p>
     <input type="text" id="answer" placeholder="Enter your answer">
     <button onclick="checkAnswer()">Submit</button>
   </div>
@@ -51,8 +51,8 @@ window.addEventListener("load", () => {
 
 function checkAnswer() {
   const input = document.getElementById("answer").value.trim().toLowerCase();
-  if (input === "sayoday") {
-    window.location.href = "reward.html";
+  if (input === "sultai") {
+    window.location.href = "SLTI.html";
   } else {
     alert("Incorrect. Look deeper.");
   }
