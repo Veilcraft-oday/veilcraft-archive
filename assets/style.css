@@ -16,6 +16,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* === Typography and Content === */
