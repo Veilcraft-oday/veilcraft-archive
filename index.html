@@ -1,42 +1,37 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Veilcraft | The Fifth Seat</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
-  <style>
-    body {
-      background: url('assets/bg-veilcraft.png') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-  </style>
 </head>
 <body>
-    <div class="veilcraft-container">
-    <h1 class="message">I´m proud that you finally started to remember.<br>
-    The veil will move again. Stay vigilant, old friends!</h1>
-    <div id="countdown"></div>
+  <div class="veilcraft-container fade-in">
+    <h1 class="message">
+      I'm proud that you finally started to remember.<br>
+      The veil will move again. Stay vigilant, old friends!
+    </h1>
+    <div id="countdown" role="timer" aria-live="polite"></div>
     <div id="riddle-placeholder"></div>
-      </div>
-   <div class="gradient-background">
-        <div class="gradient-sphere sphere-1"></div>
-        <div class="gradient-sphere sphere-2"></div>
-        <div class="gradient-sphere sphere-3"></div>
-        <div class="glow"></div>
-        <div class="grid-overlay"></div>
-        <div class="noise-overlay"></div>
-        <div class="particles-container" id="particles-container"></div>
-    </div>
-  <audio id="bg-audio" autoplay loop preload="auto">
-  <source src="assets/whisper.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+  </div>
 
+  <!-- Background Effects -->
+  <div class="gradient-background">
+    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="bg-audio" autoplay muted loop preload="auto">
+    <source src="assets/whisper.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 </body>
 </html>
