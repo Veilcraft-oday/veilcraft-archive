@@ -68,7 +68,7 @@ async function hashInput(text) {
 async function checkAnswer() {
   const input = document.getElementById("answer").value.trim().toLowerCase();
   const hashedInput = await hashInput(input);
-  const correctHash = "aef963b6220bdb876ac91b177c7a9726b1d98f8f5d54fffa0322c5561bd79bba"; // "sultai"
+  const correctHash = "aef963b6220bdb876ac91b177c7a9726b1d98f8f5d54fffa0322c5561bd79bba"; // "the brood"
 
   if (hashedInput === correctHash) {
     sessionStorage.setItem("veilcraft_passed", "true");
