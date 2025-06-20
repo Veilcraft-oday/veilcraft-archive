@@ -110,7 +110,7 @@ function checkFinalAnswer() {
   const errorMessage = document.getElementById("error-message");
   const challengeText = document.getElementById("challenge-text");
   const oldContainer = document.getElementById("veilcraft-container");
-  const ritualPhase = document.getElementById("ritual-phase");
+  const ritualPhase = document.getElementById("ritual-container");
 
   if (input === correctAnswer) {
     errorMessage.style.display = "none";
