@@ -108,16 +108,20 @@ function checkFinalAnswer() {
   const correctAnswer = "renew";
 
   const errorMessage = document.getElementById("error-message");
-  const challengeText = document.getElementById("challenge-text");
   const oldContainer = document.getElementById("veilcraft-container");
   const ritualPhase = document.getElementById("ritual-container");
 
   if (input === correctAnswer) {
     errorMessage.style.display = "none";
     oldContainer.classList.add("fade-out-container");
+
     setTimeout(() => {
       oldContainer.style.display = "none";
       ritualPhase.style.display = "block";
+
+      const ritualBtn = document.getElementById("ritual-btn");
+      ritualBtn.classList.add("reveal");
+
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 1500);
   } else {
