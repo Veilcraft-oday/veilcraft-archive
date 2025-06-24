@@ -48,23 +48,21 @@ function checkAnswer() {
   }
 }
 
-// Autoplay background audio
-window.addEventListener("load", () => {
+
+  // Music autoplay with fallback
   const audio = document.getElementById("bg-audio");
   if (audio) {
     audio.volume = 0.3;
     audio.play().catch(() => {
-      const resume = () => {
-        audio.muted = false;
+      const resumeAudio = () => {
         audio.play();
-        document.removeEventListener("click", resume);
-        document.removeEventListener("keydown", resume);
+        document.removeEventListener("click", resumeAudio);
+        document.removeEventListener("keydown", resumeAudio);
       };
-      document.addEventListener("click", resume);
-      document.addEventListener("keydown", resume);
+      document.addEventListener("click", resumeAudio);
+      document.addEventListener("keydown", resumeAudio);
     });
   }
-});
 
 
 // Particle System
