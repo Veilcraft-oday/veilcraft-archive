@@ -148,8 +148,8 @@ document.addEventListener("mousemove", (e) => {
   }, 10);
 
   const spheres = document.querySelectorAll(".gradient-sphere");
-  const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
-  const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
+  const moveX = (e.clientX / window.innerWidth - 0.2) * 6;
+  const moveY = (e.clientY / window.innerHeight - 0.3) * 5;
 
   spheres.forEach((sphere) => {
     sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
