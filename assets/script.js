@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
       clearInterval(interval);
       countdownEl.style.display = "none";
       document.getElementById("riddle-placeholder").innerHTML = `
-        <div id="riddle">
-          <p>The answer lies in the fifth seat.</p>
-          <p>Look between the lines</p>
-          <input type="text" id="answer" placeholder="Enter your answer">
-          <button onclick="checkAnswer()">Submit</button>
-          <p id="error-message" style="color: red; display: none;">Incorrect. Look deeper.</p>
-        </div>
-      `;
+  <div id="mirror-reveal" style="text-align: center;">
+    <h2 style="margin-bottom: 1rem;">Follow me through the mirror</h2>
+    <a href="mirror.html">
+      <img src="assets/mirror-entry.png" alt="Mirror Gateway" style="max-width: 100%; border-radius: 10px; box-shadow: 0 0 25px rgba(168, 74, 226, 0.5); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+    </a>
+  </div>
+`;
+
 
       document.getElementById("answer").addEventListener("keydown", function (e) {
         if (e.key === "Enter") checkAnswer();
