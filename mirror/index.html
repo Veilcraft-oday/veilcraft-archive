@@ -2,58 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cracks in the Mirror</title>
   <link rel="stylesheet" href="../assets/style.css" />
   <script src="../assets/script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    .mirror-content {
-      position: relative;
+    .mirror-stage {
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
       text-align: center;
       max-width: 700px;
-      margin: 10vh auto;
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 12px;
-      z-index: 10;
-    }
-    .mirror-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      margin: 8vh auto;
       font-family: 'Eczar', serif;
     }
-    .mirror-content p {
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
+
+    .mirror-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mirror-text {
       color: rgba(255, 255, 255, 0.85);
-      font-family: 'Eczar', serif;
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
+
+    .mirror-binary {
+      font-family: monospace;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      line-height: 1.6;
+      margin: 1.5rem 0 2rem;
+    }
+
     .mirror-image {
-      display: block;
-      margin: 2rem auto 0;
       max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(168, 74, 226, 0.4);
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(168, 74, 226, 0.4);
     }
   </style>
 </head>
 <body>
-  <div class="gradient-background">
-    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
-    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
-    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
-    <div class="glow" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
-    <div class="noise-overlay" aria-hidden="true"></div>
-    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
-  </div>
-
-  <div class="mirror-content">
-    <h1>Cracks in the Mirror</h1>
-    <p>Old friends, you followed me.</p>
-    <p>Sometimes when you look in the mirror, someone else looks back.</p>
-    <p style="margin-top: 2rem; font-family: monospace; font-size: 0.95rem; opacity: 0.7;">
+  <div class="mirror-stage">
+    <h1 class="mirror-title">Cracks in the Mirror</h1>
+    <p class="mirror-text">Old friends, you followed me.</p>
+    <p class="mirror-text">Sometimes when you look in the mirror, someone else looks back.</p>
+    <p class="mirror-binary">
       01010010 01100101 01110110 01100101 01110010 <br>
       01110011 01100101 00100000 01110100 01101000 <br>
       01100101 00100000 01101100 01100001 01110011 <br>
@@ -65,6 +68,16 @@
       01101111 01100111 01110010 01100101 01110011 01110011 00101110
     </p>
     <img src="../assets/mirror-image.png" alt="The Mirror" class="mirror-image" />
+  </div>
+
+  <div class="gradient-background">
+    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
   </div>
 </body>
 </html>
