@@ -8,64 +8,70 @@
   <script src="../assets/script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    .mirror-container {
+    .mirror-stage {
       z-index: 10;
       background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
       border-radius: 10px;
       text-align: center;
-      max-width: 600px;
-      margin: 5vh auto;
+      max-width: 700px;
+      margin: 8vh auto;
+      font-family: 'Eczar', serif;
     }
 
     .mirror-title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
       background: linear-gradient(to right, #fff, #aaa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .mirror-text {
-      color: #ccc;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
       line-height: 1.6;
+    }
+
+    .mirror-binary {
+      font-family: monospace;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      line-height: 1.6;
+      margin: 1.5rem 0 2rem;
     }
 
     .mirror-image {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 25px rgba(168, 74, 226, 0.4);
     }
   </style>
 </head>
 <body>
-  <div class="mirror-container">
-    <h1 class="mirror-title">Cracks in the mirror</h1>
-    <p class="mirror-text">
-      Old friends, you found me.<br>
-      Sometimes when you look out of the mirror, someone familiar looks back in.<br><br>
-      <code>
-        01010011 01101111 01101101 01100101 01110100 01101001 <br>
-        01101101 01100101 01110011 00100000 01111001 01101111 <br>
-        01110101 00100000 01101000 01100001 01110110 01100101 <br>
-        00100000 01110100 01101111 00100000 01110010 01100101 <br>
-        01110110 01100101 01110010 01110011 01100101 00100000 <br>
-        01100101 01110110 01100101 01110010 01111001 01110100 <br>
-        01101000 01101001 01101110 01100111 00100000 01110100 <br>
-        01101111 00100000 01100110 01101001 01101110 01100100 <br>
-        00100000 01110100 01101000 01100101 00100000 01100011 <br>
-        01101111 01110010 01110010 01100101 01100011 01110100 <br>
-        00100000 01100001 01101110 01110011 01110111 01100101 01110010
-      </code>
+  <div class="mirror-stage">
+    <h1 class="mirror-title">Cracks in the Mirror</h1>
+    <p class="mirror-text">Old friends, you found me.</p>
+    <p class="mirror-text">Sometimes when you look out of the mirror, someone familiar looks back in.</p>
+    <p class="mirror-binary">
+      01010011 01101111 01101101 01100101 01110100 01101001 <br>
+      01101101 01100101 01110011 00100000 01111001 01101111 <br>
+      01110101 00100000 01101000 01100001 01110110 01100101 <br>
+      00100000 01110100 01101111 00100000 01110010 01100101 <br>
+      01110110 01100101 01110010 01110011 01100101 00100000 <br>
+      01100101 01110110 01100101 01110010 01111001 01110100 <br>
+      01101000 01101001 01101110 01100111 00100000 01110100 <br>
+      01101111 00100000 01100110 01101001 01101110 01100100 <br>
+      00100000 01110100 01101000 01100101 00100000 01100011 <br>
+      01101111 01110010 01110010 01100101 01100011 01110100 <br>
+      00100000 01100001 01101110 01110011 01110111 01100101 01110010
     </p>
     <img src="../assets/Reverse.PNG" alt="Reverse Mirror Clue" class="mirror-image" />
   </div>
 
-  <!-- Background Effects -->
   <div class="gradient-background">
     <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
     <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
@@ -75,6 +81,5 @@
     <div class="noise-overlay" aria-hidden="true"></div>
     <div class="particles-container" id="particles-container" aria-hidden="true"></div>
   </div>
-
 </body>
 </html>
