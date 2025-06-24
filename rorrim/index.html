@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cracks in the Mirror</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .mirror-container {
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 600px;
+      margin: 5vh auto;
+    }
+
+    .mirror-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mirror-text {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .mirror-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="mirror-container">
+    <h1 class="mirror-title">Cracks in the mirror</h1>
+    <p class="mirror-text">
+      Old friends, you followed me.<br>
+      Sometimes when you look in the mirror, someone else looks back.<br><br>
+      <code>
+        01010010 01100101 01110110 01100101 01110010 01110011 01100101 00100000<br>
+        01110100 01101000 01100101 00100000 01101100 01100001 01110011 01110100<br>
+        00100000 01110011 01110100 01100101 01110000 00100000 01101111 01100110<br>
+        00100000 01111001 01101111 01110101 01110010 00100000 01010000 01100001<br>
+        01110100 01101000 00100000 01110100 01101111 00100000 01110000 01110010<br>
+        01101111 01100111 01110010 01100101 01110011 01110011 00101110
+      </code>
+    </p>
+    <img src="../assets/Reverse.png" alt="Reverse Mirror Clue" class="mirror-image" />
+  </div>
+
+  <!-- Background Effects -->
+  <div class="gradient-background">
+    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
+  </div>
+
+  <!-- Optional background music (reuse if needed) -->
+  <!--
+  <audio id="bg-audio" autoplay muted loop preload="auto">
+    <source src="../assets/WRinstr.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  -->
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
