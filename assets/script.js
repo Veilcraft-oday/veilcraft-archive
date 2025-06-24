@@ -55,6 +55,7 @@ function checkAnswer() {
     audio.volume = 0.3;
     audio.play().catch(() => {
       const resumeAudio = () => {
+        audio.muted = false;
         audio.play();
         document.removeEventListener("click", resumeAudio);
         document.removeEventListener("keydown", resumeAudio);
