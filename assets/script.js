@@ -55,6 +55,7 @@ window.addEventListener("load", () => {
     audio.volume = 0.3;
     audio.play().catch(() => {
       const resume = () => {
+        audio.muted = false;
         audio.play();
         document.removeEventListener("click", resume);
         document.removeEventListener("keydown", resume);
@@ -64,6 +65,7 @@ window.addEventListener("load", () => {
     });
   }
 });
+
 
 // Particle System
 const particlesContainer = document.getElementById("particles-container");
