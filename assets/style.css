@@ -40,7 +40,15 @@ a:hover {
   margin-bottom: 3rem;
   font-family: inherit;
 }
+.binary-hidden {
+  filter: blur(4px);
+  transition: filter 0.4s ease;
+  cursor: pointer;
+}
 
+.binary-hidden:hover {
+  filter: blur(0);
+}
 h1 {
   font-size: 3.5rem;
   font-weight: 800;
