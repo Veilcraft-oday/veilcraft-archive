@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("riddle-placeholder").innerHTML = `
   <div id="mirror-reveal" style="text-align: center;">
     <h2 style="margin-bottom: 1rem;">Follow me through the mirror</h2>
-    <a href="/mirror/index.html">
+    <a href="https://veilcraft-oday.github.io/veilcraft-archive/mirror/">
       <img src="assets/mirror-entry.png" alt="Mirror Gateway" style="max-width: 100%; border-radius: 10px; box-shadow: 0 0 25px rgba(168, 74, 226, 0.5); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
     </a>
   </div>
