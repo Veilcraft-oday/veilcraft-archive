@@ -145,8 +145,10 @@ function submitFinalRiddle() {
 
   if (!input || !error) return;
 
-  const value = input.value.trim().toLowerCase();
-  if (value === "gaia") {
+ const value = input.value.trim().toLowerCase();
+  const acceptedAnswers = ["gaia", "gaea"];
+  
+  if (acceptedAnswers.includes(value)) {
     window.location.href = "https://veilcraft-oday.github.io/veilcraft-archive/finale/discord.html";
   } else {
     error.style.display = "block";
