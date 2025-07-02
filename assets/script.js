@@ -136,7 +136,7 @@ function submitFinalRiddle() {
   const error = document.getElementById("final-error");
 
   if (input === "gaia") {
-    window.location.href = "finale/discord.html";
+    window.location.href = "../finale/discord.html";
   } else {
     error.style.display = "block";
   }
