@@ -9,21 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
     if (distance <= 0) {
       clearInterval(interval);
       countdownEl.style.display = "none";
+
       document.getElementById("riddle-placeholder").innerHTML = `
-  <div id="mirror-reveal" style="text-align: center;">
-    <h2 style="margin-bottom: 1rem;">Follow me through the mirror</h2>
-    <a href="https://veilcraft-oday.github.io/veilcraft-archive/mirror/">
-      <img src="assets/mirror-entry.png" alt="Mirror Gateway" style="max-width: 100%; border-radius: 10px; box-shadow: 0 0 25px rgba(168, 74, 226, 0.5); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
-    </a>
-  </div>
-`;
+        <div id="final-riddle">
+          <p>
+            What plane are we going to <b>finally</b> walk on in our <b>fantastic</b> journey in just <b>XII</b> days?
+          </p>
+          <input type="text" id="final-answer" placeholder="Your answer..." />
+          <button onclick="submitFinalRiddle()">Submit</button>
+          <p id="final-error" style="color: red; display: none;">Incorrect. Try again.</p>
+        </div>
+      `;
 
-
-      document.getElementById("answer").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") checkAnswer();
+      // Add Enter key support
+      const input = document.getElementById("final-answer");
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") submitFinalRiddle();
       });
 
-      return;
+      return; // prevent rest of the interval logic
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -33,23 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }, 1000);
-});
 
-// Answer check (now using plain text)
-function checkAnswer() {
-  const input = document.getElementById("answer").value.trim().toLowerCase();
-  const correctAnswer = "sultai";
-
-  if (input === correctAnswer) {
-    sessionStorage.setItem("veilcraft_passed", "true");
-    window.location.href = "SLTI.html";
-  } else {
-    document.getElementById("error-message").style.display = "block";
-  }
-}
-
-
-  // Music autoplay with fallback
+  // Background music with fallback
   const audio = document.getElementById("bg-audio");
   if (audio) {
     audio.volume = 0.3;
@@ -65,92 +54,90 @@ function checkAnswer() {
     });
   }
 
+  // Particle setup
+  const particlesContainer = document.getElementById("particles-container");
+  const particleCount = 80;
 
-// Particle System
-const particlesContainer = document.getElementById("particles-container");
-const particleCount = 80;
+  for (let i = 0; i < particleCount; i++) {
+    createParticle();
+  }
 
-for (let i = 0; i < particleCount; i++) {
-  createParticle();
-}
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    const size = Math.random() * 3 + 1;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    resetParticle(particle);
+    particlesContainer.appendChild(particle);
+    animateParticle(particle);
+  }
 
-function createParticle() {
-  const particle = document.createElement("div");
-  particle.className = "particle";
-
-  const size = Math.random() * 3 + 1;
-  particle.style.width = `${size}px`;
-  particle.style.height = `${size}px`;
-
-  resetParticle(particle);
-  particlesContainer.appendChild(particle);
-  animateParticle(particle);
-}
-
-function resetParticle(particle) {
-  const posX = Math.random() * 100;
-  const posY = Math.random() * 100;
-  particle.style.left = `${posX}%`;
-  particle.style.top = `${posY}%`;
-  particle.style.opacity = "0";
-  return { x: posX, y: posY };
-}
-
-function animateParticle(particle) {
-  const pos = resetParticle(particle);
-  const duration = Math.random() * 10 + 10;
-  const delay = Math.random() * 5;
-
-  setTimeout(() => {
-    particle.style.transition = `all ${duration}s linear`;
-    particle.style.opacity = Math.random() * 0.3 + 0.1;
-
-    const moveX = pos.x + (Math.random() * 20 - 10);
-    const moveY = pos.y - Math.random() * 30;
-
-    particle.style.left = `${moveX}%`;
-    particle.style.top = `${moveY}%`;
-
-    setTimeout(() => {
-      animateParticle(particle);
-    }, duration * 1000);
-  }, delay * 1000);
-}
-
-// Mouse-based motion + particle interaction
-document.addEventListener("mousemove", (e) => {
-  const mouseX = (e.clientX / window.innerWidth) * 100;
-  const mouseY = (e.clientY / window.innerHeight) * 100;
-
-  const particle = document.createElement("div");
-  particle.className = "particle";
-
-  const size = Math.random() * 4 + 2;
-  particle.style.width = `${size}px`;
-  particle.style.height = `${size}px`;
-
-  particle.style.left = `${mouseX}%`;
-  particle.style.top = `${mouseY}%`;
-  particle.style.opacity = "0.6";
-
-  particlesContainer.appendChild(particle);
-
-  setTimeout(() => {
-    particle.style.transition = "all 2s ease-out";
-    particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
-    particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+  function resetParticle(particle) {
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    particle.style.left = `${posX}%`;
+    particle.style.top = `${posY}%`;
     particle.style.opacity = "0";
+    return { x: posX, y: posY };
+  }
+
+  function animateParticle(particle) {
+    const pos = resetParticle(particle);
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * 5;
 
     setTimeout(() => {
-      particle.remove();
-    }, 2000);
-  }, 10);
+      particle.style.transition = `all ${duration}s linear`;
+      particle.style.opacity = Math.random() * 0.3 + 0.1;
+      particle.style.left = `${pos.x + (Math.random() * 20 - 10)}%`;
+      particle.style.top = `${pos.y - Math.random() * 30}%`;
 
-  const spheres = document.querySelectorAll(".gradient-sphere");
-  const moveX = (e.clientX / window.innerWidth - 0.2) * 6;
-  const moveY = (e.clientY / window.innerHeight - 0.3) * 5;
+      setTimeout(() => animateParticle(particle), duration * 1000);
+    }, delay * 1000);
+  }
 
-  spheres.forEach((sphere) => {
-    sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  // Mouse movement interaction
+  document.addEventListener("mousemove", (e) => {
+    const mouseX = (e.clientX / window.innerWidth) * 100;
+    const mouseY = (e.clientY / window.innerHeight) * 100;
+
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    const size = Math.random() * 4 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${mouseX}%`;
+    particle.style.top = `${mouseY}%`;
+    particle.style.opacity = "0.6";
+
+    particlesContainer.appendChild(particle);
+
+    setTimeout(() => {
+      particle.style.transition = "all 2s ease-out";
+      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
+      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+      particle.style.opacity = "0";
+      setTimeout(() => particle.remove(), 2000);
+    }, 10);
+
+    const spheres = document.querySelectorAll(".gradient-sphere");
+    const moveX = (e.clientX / window.innerWidth - 0.2) * 6;
+    const moveY = (e.clientY / window.innerHeight - 0.3) * 5;
+    spheres.forEach((sphere) => {
+      sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
   });
 });
+
+// Global scope function
+function submitFinalRiddle() {
+  const input = document.getElementById("final-answer").value.trim().toLowerCase();
+  const error = document.getElementById("final-error");
+
+  if (input === "gaia") {
+    window.location.href = "finale/discord.html";
+  } else {
+    error.style.display = "block";
+  }
+}
