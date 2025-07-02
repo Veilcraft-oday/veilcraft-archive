@@ -147,7 +147,7 @@ function submitFinalRiddle() {
 
   const value = input.value.trim().toLowerCase();
   if (value === "gaia") {
-    window.location.href = "../finale/discord.html";
+    window.location.href = "https://veilcraft-oday.github.io/veilcraft-archive/finale/discord.html";
   } else {
     error.style.display = "block";
   }
