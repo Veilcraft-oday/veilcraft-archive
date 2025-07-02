@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Have forsyth</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script src="../assets/script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .discord-container {
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 700px;
+      margin: 10vh auto;
+    }
+
+    .discord-title {
+      font-size: 2.5rem;
+      font-family: 'Eczar', serif;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .discord-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 1.5rem;
+      font-family: 'Eczar', serif;
+    }
+
+    .discord-subtext {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-family: 'Eczar', serif;
+    }
+
+    .discord-image {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(168, 74, 226, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="gradient-background">
+    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="discord-container">
+    <h1 class="discord-title">Have forsyth</h1>
+    <p class="discord-text">
+    🜃 Three boards were found.<br>
+Each from a different game.<br>
+      <br>
+      rk6/pP6/pP6/np6/Np6/Pn6/PpNpPP2/RqnBBK2 w - - 0 1  <br>
+      rnbqk3/ppppp3/PP6/bnpr4/BNPR4/pp6/PPPPP3/RNBQK3 w - - 0 1  <br>
+      rnk5/pppp4/PP1qp3/bn2p3/BN2P3/pp1QP3/PPPP4/RNK5 w - - 0 1  <br>
+      <br>
+Do not play them.<br>
+Do not solve them.<br>
+Observe!
+      <br>
+
+    </p>
+    <p class="discord-subtext">
+      When you see it, leave the word in the <b>Third Whisper</b>.
+Only once. Only you.
+    </p>
+    <img src="../assets/dirk_finale.png" alt="Discord Clue" class="discord-image" />
+  </div>
+  
+  <!-- Audio -->
+  <audio id="bg-audio" loop>
+    <source src="../assets/Veilcraft-riddle.mp3" type="audio/mpeg" />
+  </audio>
+
+</body>
+</html>
