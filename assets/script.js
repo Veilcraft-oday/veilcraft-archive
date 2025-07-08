@@ -2,29 +2,35 @@ document.addEventListener("DOMContentLoaded", function () {
   // Countdown logic (only if element exists)
   const countdownEl = document.getElementById("countdown");
   if (countdownEl) {
-    const targetDate = new Date("2025-07-12T10:00:00").getTime();
+    const targetDate = new Date("2025-07-05T10:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
 
       if (distance <= 0) {
-        clearInterval(interval);
-        countdownEl.style.display = "none";
+  clearInterval(interval);
+  countdownEl.style.display = "none";
 
-        const placeholder = document.getElementById("riddle-placeholder");
-        if (placeholder) {
-          placeholder.innerHTML = `
-            <div id="final-riddle">
-             
-            </div>
-          `;
+  musicPlaceholder.innerHTML = `
+    <div class="music-reveal">
+      <h2>The Veil is Lifted</h2>
+      <p>Choose your portal to listen:</p>
+      <div class="music-icons">
+        <a href="https://music.youtube.com/channel/UCSaYEkpukaeIb_tEXVofWNA?si=Jppa4bXWmtZqSBTT" target="_blank" class="music-icon">
+          <img src="assets/youtube.svg" alt="YouTube" />
+        </a>
+        <a href="https://open.spotify.com/artist/3sOJrHZ3oAeeEGKmkIhjqC?si=_Zuv0J1SQO6GB9o0UIRojw" target="_blank" class="music-icon">
+          <img src="assets/spotify.svg" alt="Spotify" />
+        </a>
+        <a href="https://music.amazon.de/artists/B0FDJQ4YQN/veilcraft?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_exofvqvphz3p6m4yGo0XTIAVk" target="_blank" class="music-icon">
+          <img src="assets/amazon.png" alt="Amazon Music" />
+        </a>
+      </div>
+    </div>
+  `;
+}
 
-          const input = document.getElementById("final-answer");
-          input.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") submitFinalRiddle();
-          });
-        }
 
         return;
       }
