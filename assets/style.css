@@ -151,6 +151,42 @@ p {
   background: linear-gradient(90deg, #c073ff, #8459e6);
   transform: scale(1.03);
 }
+.music-reveal {
+  text-align: center;
+  margin-top: 3rem;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.music-reveal h2 {
+  font-family: 'Eczar', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.music-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.music-icon img {
+  width: 80px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
+}
+
+.music-icon:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(168, 74, 226, 0.7));
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* === Button Class === */
 .btn {
