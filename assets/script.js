@@ -16,12 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (placeholder) {
           placeholder.innerHTML = `
             <div id="final-riddle">
-              <p>
-                What plane are we going to <b>FINALly</b> walk on in our <b>FANTAStic</b> dream journey in just <b>VII</b> days?
-              </p>
-              <input type="text" id="final-answer" placeholder="Your answer..." />
-              <button onclick="submitFinalRiddle()">Submit</button>
-              <p id="final-error" style="color: red; display: none;">Incorrect. Try again.</p>
+             
             </div>
           `;
 
