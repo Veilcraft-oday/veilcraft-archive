@@ -15,12 +15,13 @@ html, body {
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
-  align-items: start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   scroll-behavior: smooth;
 }
 
-/* === Typography and Content === */
+/* === Typography === */
 a {
   color: #a183ff;
   text-decoration: none;
@@ -32,23 +33,6 @@ a:hover {
   color: #ffffff;
 }
 
-.message {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: #ccc;
-  max-width: 600px;
-  margin-bottom: 3rem;
-  font-family: inherit;
-}
-.binary-hidden {
-  filter: blur(4px);
-  transition: filter 0.4s ease;
-  cursor: pointer;
-}
-
-.binary-hidden:hover {
-  filter: blur(0);
-}
 h1 {
   font-size: 3.5rem;
   font-weight: 800;
@@ -69,7 +53,7 @@ p {
   font-family: inherit;
 }
 
-/* === Containers === */
+/* === Main Container === */
 .veilcraft-container {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 2rem;
@@ -84,77 +68,33 @@ p {
   max-height: 90vh;
   overflow-y: auto;
   font-family: inherit;
+  margin-top: 3rem;
 }
 
 @keyframes fadeInContainer {
   to { opacity: 1; }
 }
 
-/* === Fade/Reveal Utilities === */
-.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.5s ease;
-}
-
-#ritual-btn {
-  display: none;
-  opacity: 0;
-}
-
-#ritual-btn.reveal {
-  display: inline-block;
-  opacity: 1;
-  transition: opacity 1s ease;
-}
-
-.no-scroll {
-  overflow: hidden !important;
-}
-
-/* === Input and Button Styles === */
-#riddle input[type="text"], #final-answer {
-  background-color: rgba(30, 30, 30, 0.9);
-  border: 1px solid #a84ae2;
-  padding: 10px 15px;
-  color: #f5f5f5;
-  font-family: inherit;
-  font-size: 16px;
-  border-radius: 4px;
-  width: 80%;
-  margin: 10px 0;
-  text-align: center;
-  transition: border-color 0.3s;
-  cursor: text;
-}
-
-#riddle input[type="text"]:focus, #final-answer:focus {
-  outline: 2px solid #c073ff;
-  background-color: rgba(60, 60, 60, 1);
-}
-
-#riddle button, button {
-  background: linear-gradient(90deg, #a84ae2, #6737b4);
-  border: none;
-  padding: 10px 20px;
+/* === Countdown & Music Placeholder === */
+#countdown {
+  margin-top: 1rem;
   font-weight: bold;
-  text-transform: uppercase;
-  color: black;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  font-family: inherit;
-  box-shadow: 0 4px 20px rgba(168, 74, 226, 0.4);
+  font-size: 1.1rem;
+  color: #fff;
 }
 
-#riddle button:hover, button:hover {
-  background: linear-gradient(90deg, #c073ff, #8459e6);
-  transform: scale(1.03);
+#music-placeholder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
 }
+
 .music-reveal {
   text-align: center;
-  margin-top: 3rem;
   animation: fadeIn 1.5s ease forwards;
+  max-width: 600px;
+  width: 100%;
 }
 
 .music-reveal h2 {
@@ -183,61 +123,16 @@ p {
   filter: drop-shadow(0 0 10px rgba(168, 74, 226, 0.7));
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* === Button Class === */
-.btn {
-  background: linear-gradient(90deg, #a84ae2, #6737b4);
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 20px rgba(168, 74, 226, 0.3);
-  font-family: inherit;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(168, 74, 226, 0.4);
-}
-
-/* === Scrollbar Theme === */
-.veilcraft-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.veilcraft-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.veilcraft-container::-webkit-scrollbar-thumb {
-  background: #a84ae2;
-  border-radius: 10px;
-}
-
-.veilcraft-container::-webkit-scrollbar-thumb:hover {
-  background: #c073ff;
-}
-
-/* === Visual Effects === */
+/* === Background & Visual Effects === */
 .gradient-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  background: url('/veilcraft-archive/assets/bg-veilcraft.png') no-repeat center center fixed;
+  background: url('./assets/bg-veilcraft.png') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -278,59 +173,16 @@ p {
   0% { transform: translate(0, 0) scale(1); }
   100% { transform: translate(10%, 10%) scale(1.1); }
 }
-
 @keyframes float-2 {
   0% { transform: translate(0, 0) scale(1); }
   100% { transform: translate(-10%, -5%) scale(1.15); }
 }
-
 @keyframes float-3 {
   0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
   100% { transform: translate(-5%, 10%) scale(1.05); opacity: 0.6; }
 }
 
-.noise-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.05;
-  z-index: 5;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-.grid-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  z-index: 2;
-}
-
-.glow {
-  position: absolute;
-  width: 40vw;
-  height: 40vh;
-  background: radial-gradient(circle, rgba(72, 0, 255, 0.15), transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  animation: pulse 8s infinite alternate;
-  filter: blur(30px);
-}
-
-@keyframes pulse {
-  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
-  100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
-}
-
+/* === Particles === */
 .particles-container {
   position: absolute;
   top: 0;
@@ -349,7 +201,7 @@ p {
   pointer-events: none;
 }
 
-/* === Glitch and Flicker === */
+/* === Text Glitch / Flicker === */
 @keyframes flicker {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -376,51 +228,76 @@ p {
   font-style: italic;
   opacity: 0.8;
   animation: glitch 2s infinite;
-  font-family: inherit;
 }
-/* === Ritual Phase Styling === */
-#ritual-phase {
-  display: none;
-  opacity: 0;
-  animation: fadeInContainer 1.5s ease forwards;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 10px;
+
+/* === Inputs & Buttons === */
+input[type="text"], #final-answer {
+  background-color: rgba(30, 30, 30, 0.9);
+  border: 1px solid #a84ae2;
+  padding: 10px 15px;
+  color: #f5f5f5;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 80%;
+  margin: 10px 0;
   text-align: center;
-  max-width: 600px;
-  width: 100%;
-  position: relative;
-  z-index: 10;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, #final-answer:focus {
+  outline: 2px solid #c073ff;
+  background-color: rgba(60, 60, 60, 1);
+}
+
+button {
+  background: linear-gradient(90deg, #a84ae2, #6737b4);
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
   font-family: inherit;
-}
-#error-message {
-  color: red;
-  display: none;
-  margin-top: 1rem;
-}
-.fade-out-container {
-  animation: fadeOutContainer 1s ease forwards;
+  box-shadow: 0 4px 20px rgba(168, 74, 226, 0.4);
 }
 
-@keyframes fadeOutContainer {
-  to { opacity: 0; transform: scale(0.98); }
+button:hover {
+  background: linear-gradient(90deg, #c073ff, #8459e6);
+  transform: scale(1.03);
 }
 
-/* === Responsive for smaller viewports === */
-@media (max-height: 700px) {
-  .veilcraft-container {
-    padding: 1rem;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
+/* === Scrollbars === */
+.veilcraft-container::-webkit-scrollbar {
+  width: 8px;
+}
+.veilcraft-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.veilcraft-container::-webkit-scrollbar-thumb {
+  background: #a84ae2;
+  border-radius: 10px;
+}
+.veilcraft-container::-webkit-scrollbar-thumb:hover {
+  background: #c073ff;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
   h1 {
     font-size: 2rem;
   }
-
-  .mystery-line {
+  p {
     font-size: 1rem;
   }
-
-  .artwork {
-    max-height: 40vh;
+  .music-icon img {
+    width: 60px;
   }
 }
