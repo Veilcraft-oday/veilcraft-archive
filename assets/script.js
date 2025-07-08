@@ -8,32 +8,34 @@ document.addEventListener("DOMContentLoaded", function () {
       const now = new Date().getTime();
       const distance = targetDate - now;
 
-      if (distance <= 0) {
+    if (distance <= 0) {
   clearInterval(interval);
   countdownEl.style.display = "none";
 
-  musicPlaceholder.innerHTML = `
-    <div class="music-reveal">
-      <h2>The Veil is Lifted</h2>
-      <p>Choose your portal to listen:</p>
-      <div class="music-icons">
-        <a href="https://music.youtube.com/channel/UCSaYEkpukaeIb_tEXVofWNA?si=Jppa4bXWmtZqSBTT" target="_blank" class="music-icon">
-          <img src="assets/youtube.svg" alt="YouTube" />
-        </a>
-        <a href="https://open.spotify.com/artist/3sOJrHZ3oAeeEGKmkIhjqC?si=_Zuv0J1SQO6GB9o0UIRojw" target="_blank" class="music-icon">
-          <img src="assets/spotify.svg" alt="Spotify" />
-        </a>
-        <a href="https://music.amazon.de/artists/B0FDJQ4YQN/veilcraft?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_exofvqvphz3p6m4yGo0XTIAVk" target="_blank" class="music-icon">
-          <img src="assets/amazon.png" alt="Amazon Music" />
-        </a>
+  const musicPlaceholder = document.getElementById("music-placeholder");
+  if (musicPlaceholder) {
+    musicPlaceholder.innerHTML = `
+      <div class="music-reveal">
+        <h2>The Veil is Lifted</h2>
+        <p>Choose your portal to listen:</p>
+        <div class="music-icons">
+          <a href="https://music.youtube.com/channel/UCSaYEkpukaeIb_tEXVofWNA?si=Jppa4bXWmtZqSBTT" target="_blank" class="music-icon">
+            <img src="assets/youtube.svg" alt="YouTube" />
+          </a>
+          <a href="https://open.spotify.com/artist/3sOJrHZ3oAeeEGKmkIhjqC?si=_Zuv0J1SQO6GB9o0UIRojw" target="_blank" class="music-icon">
+            <img src="assets/spotify.svg" alt="Spotify" />
+          </a>
+          <a href="https://music.amazon.de/artists/B0FDJQ4YQN/veilcraft?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_exofvqvphz3p6m4yGo0XTIAVk" target="_blank" class="music-icon">
+            <img src="assets/amazon.png" alt="Amazon Music" />
+          </a>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
+
+  return;
 }
 
-
-        return;
-      }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
