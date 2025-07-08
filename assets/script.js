@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Countdown logic (only if element exists)
   const countdownEl = document.getElementById("countdown");
   if (countdownEl) {
-    const targetDate = new Date("2025-07-05T10:00:00").getTime();
+    const targetDate = new Date("2025-07-12T10:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
