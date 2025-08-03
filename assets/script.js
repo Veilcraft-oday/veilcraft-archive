@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (musicPlaceholder) {
     musicPlaceholder.innerHTML = `
       <div class="music-reveal">
-        <h2>The Veil is Lifted</h2>
+        <h2>The veil has been lifted</h2>
         <p>Choose your portal to listen:</p>
         <div class="music-icons">
           <a href="https://music.youtube.com/channel/UCSaYEkpukaeIb_tEXVofWNA?si=Jppa4bXWmtZqSBTT" target="_blank" class="music-icon">
