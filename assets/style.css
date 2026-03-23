@@ -256,7 +256,7 @@ button:hover,
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  background: url('/veilcraft-archive/assets/bg-veilcraft.png') no-repeat center center fixed;
+  background: url('/veilcraft-archive/assets/BG_Schatz.png') no-repeat center center fixed;
   background-size: cover;
 }
 
