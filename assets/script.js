@@ -1,49 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Countdown logic (only if element exists)
-  const countdownEl = document.getElementById("countdown");
-  if (countdownEl) {
-    const targetDate = new Date("2025-07-12T10:00:00").getTime();
+  // Code input logic
+  const form = document.getElementById("code-form");
+  const input = document.getElementById("code-input");
+  const feedback = document.getElementById("feedback");
 
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+  if (form && input && feedback) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    if (distance <= 0) {
-  clearInterval(interval);
-  countdownEl.style.display = "none";
+      const value = input.value.trim().toLowerCase();
+      const acceptedAnswers = ["nase"];
 
-  const musicPlaceholder = document.getElementById("music-placeholder");
-  if (musicPlaceholder) {
-    musicPlaceholder.innerHTML = `
-      <div class="music-reveal">
-        <h2>The veil has been lifted</h2>
-        <p>Choose your portal to listen:</p>
-        <div class="music-icons">
-          <a href="https://music.youtube.com/channel/UCSaYEkpukaeIb_tEXVofWNA?si=Jppa4bXWmtZqSBTT" target="_blank" class="music-icon">
-            <img src="assets/youtube.svg" alt="YouTube" />
-          </a>
-          <a href="https://open.spotify.com/artist/3sOJrHZ3oAeeEGKmkIhjqC?si=_Zuv0J1SQO6GB9o0UIRojw" target="_blank" class="music-icon">
-            <img src="assets/spotify.svg" alt="Spotify" />
-          </a>
-          <a href="https://music.amazon.de/artists/B0FDJQ4YQN/veilcraft?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_exofvqvphz3p6m4yGo0XTIAVk" target="_blank" class="music-icon">
-            <img src="assets/amazon.png" alt="Amazon Music" />
-          </a>
-        </div>
-      </div>
-    `;
-  }
+      if (acceptedAnswers.includes(value)) {
+        feedback.textContent = "Richtig! Die Schatztruhe öffnet sich...";
+        feedback.style.display = "block";
 
-  return;
-}
-
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
+        setTimeout(() => {
+          window.location.href = "reward.html";
+        }, 800);
+      } else {
+        feedback.textContent = "Arrr... das ist leider nicht das richtige Lösungswort.";
+        feedback.style.display = "block";
+        input.value = "";
+        input.focus();
+      }
+    });
   }
 
   // Music autoplay fallback
@@ -53,16 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
     audio.play().catch(() => {
       const resumeAudio = () => {
         audio.muted = false;
-        audio.play();
+        audio.play().catch(() => {});
         document.removeEventListener("click", resumeAudio);
         document.removeEventListener("keydown", resumeAudio);
       };
+
       document.addEventListener("click", resumeAudio);
       document.addEventListener("keydown", resumeAudio);
     });
   }
 
-  // Particle system (only if container exists)
+  // Particle system
   const particlesContainer = document.getElementById("particles-container");
   if (particlesContainer) {
     const particleCount = 80;
@@ -74,9 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function createParticle() {
       const particle = document.createElement("div");
       particle.className = "particle";
+
       const size = Math.random() * 3 + 1;
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
+
       resetParticle(particle);
       particlesContainer.appendChild(particle);
       animateParticle(particle);
@@ -85,9 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function resetParticle(particle) {
       const posX = Math.random() * 100;
       const posY = Math.random() * 100;
+
       particle.style.left = `${posX}%`;
       particle.style.top = `${posY}%`;
       particle.style.opacity = "0";
+
       return { x: posX, y: posY };
     }
 
@@ -112,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const particle = document.createElement("div");
       particle.className = "particle";
+
       const size = Math.random() * 4 + 2;
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
@@ -131,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 10);
 
       const spheres = document.querySelectorAll(".gradient-sphere");
-      const moveX = (e.clientX / window.innerWidth - 0.2) * 6;
-      const moveY = (e.clientY / window.innerHeight - 0.3) * 5;
+      const moveX = (e.clientX / window.innerWidth - 0.5) * 6;
+      const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
 
       spheres.forEach((sphere) => {
         sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
@@ -140,20 +127,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-// Submission logic is global
-function submitFinalRiddle() {
-  const input = document.getElementById("final-answer");
-  const error = document.getElementById("final-error");
-
-  if (!input || !error) return;
-
- const value = input.value.trim().toLowerCase();
-  const acceptedAnswers = ["gaia", "gaea"];
-  
-  if (acceptedAnswers.includes(value)) {
-    window.location.href = "https://veilcraft-oday.github.io/veilcraft-archive/finale/discord.html";
-  } else {
-    error.style.display = "block";
-  }
-}
