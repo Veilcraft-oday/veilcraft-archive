@@ -3,31 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leas Team | Belohnung</title>
+  <title>Leas Team | Schatzkarte</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
 </head>
 <body>
   <div class="veilcraft-container fade-in">
-    <h1 class="message">Willkommen im Team!</h1>
+
+    <h1 class="message">Willkommen im Team, Pirat!</h1>
+
     <p class="subtext">
-      Hier sind alle Infos zu unserem Geburtstagsabenteuer:
+      Kapitän Lea erkennt dich als würdig an …<br>
+      Hier sind die Details für das Abenteuer:
     </p>
 
     <div class="info-box">
       <p><strong>Wann:</strong> Dienstag 07.05.2026 , 13:00 Uhr</p>
-      <p><strong>Wo:</strong> Bahnhof Ansbach</p>
+      <p><strong>Wo:</strong>Bahnhof Ansbach</p>
       <p><strong>Mitbringen:</strong> Gute Laune und Abenteuerlust</p>
-      <p><strong>Anmeldung:</strong>Meldet euch bei mir, um zuzusagen</p>
+      <p><strong>Anmeldung:</strong> Bitte tretet über den Button oder den QR-Code der WhatsApp-Gruppe bei.</p>
     </div>
-    <div class="qr-section">
-  <p class="subtext">
-    Oder scanne den Code:
-  </p>
 
-  <img src="assets/QR_Whatsapp.png" alt="QR Code zur Anmeldung" class="qr-code" />
-</div>
+    <div class="reward-actions">
+      <a class="pirate-button" href="https://chat.whatsapp.com/JNvYHah020PLAWmgjdUVut?mode=hqctcli" target="_blank" rel="noopener noreferrer">
+        Jetzt anmelden
+      </a>
+    </div>
+
+    <p class="mystery-line">
+      Der nächste Schritt liegt im Zeichen verborgen...
+    </p>
+
+    <div class="qr-section">
+      <img src="assets/QR_Whatsapp.png" alt="QR Code zur WhatsApp-Gruppe" class="qr-code" />
+    </div>
+
+    <p class="qr-hint">
+      Falls der QR-Code nicht funktioniert, einfach auf den Button klicken.
+    </p>
+
   </div>
+
+  <div class="gradient-background"></div>
+
+  <audio id="bg-audio" loop>
+    <source src="assets/WRinstr.mp3" type="audio/mpeg" />
+  </audio>
 </body>
 </html>
