@@ -246,7 +246,22 @@ button:hover,
 .reward-actions {
   margin-top: 1.5rem;
 }
+.qr-section {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
 
+.qr-code {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(168, 74, 226, 0.2);
+}
 /* === Background & Visual Effects === */
 .gradient-background {
   position: fixed;
