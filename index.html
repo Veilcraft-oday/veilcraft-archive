@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leas Team | Anne Bonnys Schatz</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
 </head>
 <body>
   <div class="veilcraft-container fade-in">
-    <h1 class="message">
-      Bist du würdig?
-    </h1>
-    <div id="countdown" role="timer" aria-live="polite"></div>
+    <h1 class="message">Anne Bonnys Schatz</h1>
+    <p class="subtext">
+      Nur echte Schatzsucher dürfen weiter.<br>
+      Gib das geheime Lösungswort ein.
+    </p>
+
+    <form id="code-form" class="code-form" autocomplete="off">
+      <input
+        type="text"
+        id="code-input"
+        name="code"
+        placeholder="Lösungswort eingeben"
+        aria-label="Lösungswort eingeben"
+        maxlength="20"
+      />
+      <button type="submit">Schatztruhe öffnen</button>
+    </form>
+
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+
     <div id="lea-placeholder"></div>
   </div>
 
