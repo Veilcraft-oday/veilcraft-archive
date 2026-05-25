@@ -1,28 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Code input logic
-  const form = document.getElementById("code-form");
-  const input = document.getElementById("code-input");
-  const feedback = document.getElementById("feedback");
+  // Gate password logic
+  const gateForm = document.getElementById("gate-form");
+  const gateInput = document.getElementById("gate-input");
+  const gateFeedback = document.getElementById("gate-feedback");
 
-  if (form && input && feedback) {
-    form.addEventListener("submit", function (e) {
+  if (gateForm && gateInput && gateFeedback) {
+    gateForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const value = input.value.trim().toLowerCase();
-      const acceptedAnswers = ["nase"];
+      const value = gateInput.value.trim().toLowerCase();
 
-      if (acceptedAnswers.includes(value)) {
-        feedback.textContent = "Richtig! Die Schatztruhe öffnet sich...";
-        feedback.style.display = "block";
+      if (value === "4rgnko0fghjkl") {
+        gateFeedback.textContent = "The veil opens...";
+        gateFeedback.style.display = "block";
 
         setTimeout(() => {
-          window.location.href = "reward.html";
+          window.location.href = "riddle/";
         }, 800);
       } else {
-        feedback.textContent = "Arrr... das ist leider nicht das richtige Lösungswort.";
-        feedback.style.display = "block";
-        input.value = "";
-        input.focus();
+        gateFeedback.textContent = "The veil remains closed.";
+        gateFeedback.style.display = "block";
+        gateInput.value = "";
+        gateInput.focus();
+      }
+    });
+  }
+
+  // Riddle code logic
+  const riddleForm = document.getElementById("riddle-form");
+  const riddleInput = document.getElementById("riddle-input");
+  const riddleFeedback = document.getElementById("riddle-feedback");
+
+  if (riddleForm && riddleInput && riddleFeedback) {
+    riddleForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const value = riddleInput.value.trim();
+
+      if (value === "9458") {
+        riddleFeedback.textContent = "The ghosts remember.";
+        riddleFeedback.style.display = "block";
+
+        setTimeout(() => {
+          window.location.href = "../reward/";
+        }, 800);
+      } else {
+        riddleFeedback.textContent = "Not yet. Count what remains.";
+        riddleFeedback.style.display = "block";
+        riddleInput.value = "";
+        riddleInput.focus();
       }
     });
   }
@@ -46,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Particle system
   const particlesContainer = document.getElementById("particles-container");
+
   if (particlesContainer) {
     const particleCount = 80;
 
