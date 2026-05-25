@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function checkRiddle() {
     const value = input.value.trim();
 
-    if (value === "9458") {
+    if (value === "9558") {
       window.location.href = "../reward.html";
     } else {
       error.style.display = "block";
