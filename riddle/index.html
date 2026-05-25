@@ -1,1 +1,31 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veilcraft | Four Ghosts</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
+  <script defer src="riddle.js"></script>
+</head>
+<body>
+  <div class="veil-bg" aria-hidden="true"></div>
+
+  <main class="veil-container">
+    <h1>Four Ghosts Fled</h1>
+
+    <p class="riddle-text">
+      oday broke open<br>
+      four ghosts fled<br>
+      one coat torn<br>
+      old bond gone
+    </p>
+
+    <input id="riddle-code" type="text" inputmode="numeric" maxlength="4" placeholder="Enter four digits..." autocomplete="off" />
+    <button id="riddle-submit">Answer</button>
+
+    <p id="riddle-error" class="error-text">Not yet. Count what remains.</p>
+  </main>
+</body>
+</html>
