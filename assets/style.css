@@ -1,434 +1,132 @@
-/* ===== Veilcraft ARG Style Sheet ===== */
-
-/* === Global Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Lucida Console', Monaco, monospace;
-  background-color: #050505;
-  color: white;
+html,
+body {
   min-height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  font-family: "Eczar", serif;
+  background: #050505;
+  color: white;
+}
+
+body {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  scroll-behavior: smooth;
+  justify-content: center;
+  padding: 2rem;
+  overflow-x: hidden;
 }
 
-/* === Typography === */
-a {
-  color: #a183ff;
-  text-decoration: none;
-  transition: 0.2s ease;
-  font-family: inherit;
+.veil-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(158, 3, 185, 0.35), transparent 35%),
+    radial-gradient(circle at 80% 80%, rgba(54, 1, 63, 0.55), transparent 40%),
+    url("bg-veilcraft.png") center center / cover no-repeat;
+  z-index: 0;
 }
 
-a:hover {
-  color: #ffffff;
+.veil-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(1px);
 }
 
-h1,
-.message {
-  font-size: 2rem;
-  font-weight: 700;
+.veil-container {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 680px);
+  padding: 2.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(168, 74, 226, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 0 35px rgba(168, 74, 226, 0.25);
+  animation: fadeIn 1.4s ease forwards;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
   margin-bottom: 1.5rem;
-  margin-top: 0;
-  background: linear-gradient(to right, #fff, #acacac);
+  background: linear-gradient(to right, #ffffff, #bca6d8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  font-family: inherit;
 }
 
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.2rem;
-  font-family: inherit;
-}
-
-.subtext {
-  font-size: 1.05rem;
+.veil-text,
+.riddle-text {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
   margin-bottom: 2rem;
-  max-width: 520px;
-  text-align: center;
 }
 
-/* === Main Container === */
-.veilcraft-container {
-  background-color: rgba(0, 0, 0, 0.72);
-  padding: 2rem;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 600px;
-  width: calc(100% - 2rem);
-  position: relative;
-  z-index: 10;
-  opacity: 0;
-  animation: fadeInContainer 1.5s ease 0.5s forwards;
-  max-height: 90vh;
-  overflow-y: auto;
-  font-family: inherit;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  border: 1px solid rgba(168, 74, 226, 0.18);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+.riddle-text {
+  letter-spacing: 0.04em;
 }
 
-@keyframes fadeInContainer {
-  to { opacity: 1; }
-}
-
-/* === Countdown & Music Placeholder === */
-#countdown {
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #fff;
-}
-
-#music-placeholder {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-.music-reveal {
-  text-align: center;
-  animation: fadeIn 1.5s ease forwards;
-  max-width: 600px;
-  width: 100%;
-}
-
-.music-reveal h2 {
-  font-family: 'Eczar', serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.music-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-
-.music-icon img {
-  width: 80px;
-  height: auto;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
-}
-
-.music-icon:hover img {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 10px rgba(168, 74, 226, 0.7));
-}
-
-/* === Form / Input / Button === */
-.code-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-input[type="text"],
-#final-answer,
-#code-input {
-  background-color: rgba(30, 30, 30, 0.92);
-  border: 1px solid #a84ae2;
-  padding: 12px 15px;
-  color: #f5f5f5;
-  font-family: inherit;
-  font-size: 16px;
-  border-radius: 6px;
+input {
   width: min(100%, 360px);
-  margin: 0;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  font-size: 1.1rem;
   text-align: center;
-  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  color: white;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #a84ae2;
+  border-radius: 8px;
 }
 
-input[type="text"]::placeholder,
-#code-input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+input:focus {
+  outline: 2px solid #c073ff;
+  background: rgba(40, 25, 50, 0.95);
 }
 
-input[type="text"]:focus,
-#final-answer:focus,
-#code-input:focus {
-  outline: none;
-  border-color: #c073ff;
-  background-color: rgba(60, 60, 60, 1);
-  box-shadow: 0 0 0 3px rgba(192, 115, 255, 0.18);
-}
-
-button,
-.pirate-button {
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.8rem 1.8rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
   background: linear-gradient(90deg, #a84ae2, #6737b4);
   border: none;
-  padding: 12px 22px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: black;
-  border-radius: 30px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  font-family: inherit;
-  box-shadow: 0 4px 20px rgba(168, 74, 226, 0.4);
-  display: inline-block;
+  box-shadow: 0 0 20px rgba(168, 74, 226, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-button:hover,
-.pirate-button:hover {
-  background: linear-gradient(90deg, #c073ff, #8459e6);
-  transform: scale(1.03);
-  color: black;
+button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 30px rgba(192, 115, 255, 0.65);
 }
 
-.feedback {
-  min-height: 1.4rem;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #f1cfff;
-  text-align: center;
-}
-
-/* === Reward Info Box === */
-.info-box {
-  width: 100%;
-  max-width: 520px;
-  margin: 1rem auto 0;
-  padding: 1.4rem 1.5rem;
-  border-radius: 10px;
-  background: rgba(14, 14, 14, 0.85);
-  border: 1px solid rgba(168, 74, 226, 0.35);
-  box-shadow: 0 0 24px rgba(168, 74, 226, 0.08);
-  text-align: left;
-}
-
-.info-box p {
-  margin-bottom: 0.85rem;
+.error-text {
+  display: none;
+  margin-top: 1.4rem;
+  color: #c073ff;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.info-box p:last-child {
-  margin-bottom: 0;
-}
-
-.info-box strong {
-  color: #ffffff;
-}
-
-.info-box a {
-  color: #d2b2ff;
-  word-break: break-word;
-}
-
-.info-box a:hover {
-  color: #ffffff;
-}
-
-.reward-actions {
-  margin-top: 1.5rem;
-}
-.qr-section {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.qr-code {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  display: block;
-  background: white;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(168, 74, 226, 0.2);
-}
-/* === Background & Visual Effects === */
-.gradient-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-  background: url('/veilcraft-archive/assets/BG_Schatz.png') no-repeat center center fixed;
-  background-size: cover;
-}
-
-.gradient-sphere {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-}
-
-.sphere-1 {
-  width: 20vw;
-  height: 20vw;
-  background: linear-gradient(40deg, rgba(54,1,63, 0.8), rgba(158,3,185, 0.4));
-  top: -10%;
-  left: -10%;
-  animation: float-1 15s ease-in-out infinite alternate;
-}
-
-.sphere-2 {
-  width: 25vw;
-  height: 25vw;
-  background: linear-gradient(240deg, rgba(54,1,63, 0.8), rgba(158,3,185, 0.4));
-  bottom: -20%;
-  right: -10%;
-  animation: float-2 18s ease-in-out infinite alternate;
-}
-
-.sphere-3 {
-  width: 10vw;
-  height: 10vw;
-  background: linear-gradient(120deg, rgba(54,1,63, 0.5), rgba(98, 216, 249, 0.3));
-  top: 60%;
-  left: 20%;
-  animation: float-3 20s ease-in-out infinite alternate;
-}
-
-@keyframes float-1 {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(10%, 10%) scale(1.1); }
-}
-
-@keyframes float-2 {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-10%, -5%) scale(1.15); }
-}
-
-@keyframes float-3 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-  100% { transform: translate(-5%, 10%) scale(1.05); opacity: 0.6; }
-}
-
-/* === Particles === */
-.particles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* === Text Glitch / Flicker === */
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.flicker {
-  animation: flicker 2s infinite;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 0 red; transform: translate(0); }
-  20% { text-shadow: -2px 0 blue; transform: translate(-1px, 1px); }
-  40% { text-shadow: 2px 0 green; transform: translate(1px, -1px); }
-  60% { text-shadow: -2px 0 magenta; transform: translate(-1px, 0); }
-  80% { text-shadow: 2px 0 cyan; transform: translate(1px, 1px); }
-  100% { text-shadow: 0 0 transparent; transform: translate(0); }
-}
-
-.mystery-line {
-  font-size: 1.2rem;
-  color: #ccc;
-  text-align: center;
-  margin-top: 10px;
   font-style: italic;
-  opacity: 0.8;
-  animation: glitch 2s infinite;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* === Scrollbars === */
-.veilcraft-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.veilcraft-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.veilcraft-container::-webkit-scrollbar-thumb {
-  background: #a84ae2;
-  border-radius: 10px;
-}
-
-.veilcraft-container::-webkit-scrollbar-thumb:hover {
-  background: #c073ff;
-}
-
-/* === Responsive === */
-@media (max-width: 600px) {
-  .veilcraft-container {
-    padding: 1.4rem 1rem;
-    margin-top: 1.5rem;
-    max-height: none;
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
 
-  h1,
-  .message {
-    font-size: 1.7rem;
-  }
-
-  p,
-  .subtext {
-    font-size: 0.98rem;
-  }
-
-  .music-icon img {
-    width: 60px;
-  }
-
-  input[type="text"],
-  #final-answer,
-  #code-input {
-    width: 100%;
-  }
-
-  .info-box {
-    padding: 1.1rem 1rem;
-  }
-
-  button,
-  .pirate-button {
-    width: 100%;
-    max-width: 360px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
