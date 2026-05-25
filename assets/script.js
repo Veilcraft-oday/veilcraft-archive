@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         riddleFeedback.style.display = "block";
 
         setTimeout(() => {
-          window.location.href = "../reward/";
+          window.location.href = "../reward.html";
         }, 800);
       } else {
         riddleFeedback.textContent = "Not yet. Count what remains.";
