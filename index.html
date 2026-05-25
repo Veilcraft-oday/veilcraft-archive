@@ -9,27 +9,31 @@
   <script defer src="assets/script.js"></script>
 </head>
 <body>
-  
   <div class="veil-bg" aria-hidden="true"></div>
 
- <main class="veil-container">
-  <h1>The Veil Remembers</h1>
-  <p class="veil-text">Enter the mark that opens the path.</p>
+  <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+  <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+  <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+  <div class="particles-container" id="particles-container" aria-hidden="true"></div>
 
-  <form id="gate-form">
-    <input
-      id="gate-input"
-      type="text"
-      placeholder="Enter the sign..."
-      autocomplete="off"
-    />
+  <main class="veil-container">
+    <h1>The Veil Remembers</h1>
+    <p class="veil-text">Enter the mark that opens the path.</p>
 
-    <button type="submit">Open the Veil</button>
+    <form id="gate-form">
+      <input
+        id="gate-input"
+        type="text"
+        placeholder="Enter the sign..."
+        autocomplete="off"
+      />
 
-    <p id="gate-feedback" class="error-text"></p>
-  </form>
-</main>
-  <!-- Audio -->
+      <button type="submit">Open the Veil</button>
+
+      <p id="gate-feedback" class="error-text"></p>
+    </form>
+  </main>
+
   <audio id="bg-audio" loop>
     <source src="assets/WRinstr.mp3" type="audio/mpeg" />
   </audio>
