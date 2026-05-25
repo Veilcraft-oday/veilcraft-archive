@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const value = input.value.trim();
 
     if (value === "9458") {
-      window.location.href = "../reward/";
+      window.location.href = "../reward.html";
     } else {
       error.style.display = "block";
     }
