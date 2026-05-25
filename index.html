@@ -9,22 +9,26 @@
   <script defer src="assets/script.js"></script>
 </head>
 <body>
-  <form id="gate-form">
-  <input id="gate-input" type="text" />
-  <button type="submit">Open the Veil</button>
-  <p id="gate-feedback" class="error-text"></p>
-</form>
+  
   <div class="veil-bg" aria-hidden="true"></div>
 
-  <main class="veil-container">
-    <h1>The Veil Remembers</h1>
-    <p class="veil-text">Enter the mark that opens the path.</p>
+ <main class="veil-container">
+  <h1>The Veil Remembers</h1>
+  <p class="veil-text">Enter the mark that opens the path.</p>
 
-    <input id="gate-password" type="text" placeholder="Enter the sign..." autocomplete="off" />
-    <button id="gate-submit">Open the Veil</button>
+  <form id="gate-form">
+    <input
+      id="gate-input"
+      type="text"
+      placeholder="Enter the sign..."
+      autocomplete="off"
+    />
 
-    <p id="gate-error" class="error-text">The veil remains closed.</p>
-  </main>
+    <button type="submit">Open the Veil</button>
+
+    <p id="gate-feedback" class="error-text"></p>
+  </form>
+</main>
   <!-- Audio -->
   <audio id="bg-audio" loop>
     <source src="assets/WRinstr.mp3" type="audio/mpeg" />
