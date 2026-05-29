@@ -94,7 +94,7 @@ body {
   background: rgba(0, 0, 0, 0.72);
   border: 1px solid rgba(168, 74, 226, 0.35);
   border-radius: 14px;
-  box-shadow: 0 0 35px rgba(168, 74, 226, 0.25);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
   animation: fadeIn 1.4s ease forwards;
 }
 
