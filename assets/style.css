@@ -183,7 +183,14 @@ button:hover {
   color: #c073ff;
   text-shadow: 0 0 18px rgba(192, 115, 255, 0.8);
 }
-
+.countdown {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #c073ff;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 12px rgba(192, 115, 255, 0.6);
+}
 .reward-lines {
   font-size: clamp(1.2rem, 3vw, 1.55rem);
   line-height: 1.7;
