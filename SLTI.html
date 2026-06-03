@@ -1,90 +1,42 @@
-<!-- SLTI.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Worthy Again</title>
+  <title>Veilcraft | Remember</title>
   <link rel="stylesheet" href="assets/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap" rel="stylesheet" />
-  <script defer src="assets/slti-script.js"></script>
-  <style>
-    .artwork {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 30px auto;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-      border-radius: 8px;
-      transition: opacity 1.5s ease;
-    }
-
-    .fade-out {
-      opacity: 0 !important;
-      transition: opacity 1s ease;
-    }
-
-    #ritual-btn {
-      margin-top: 2rem;
-    }
-
-    #ritual-container {
-      display: none;
-      text-align: center;
-      max-width: 600px;
-      margin: auto;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 10px;
-      animation: fadeInContainer 1s ease forwards;
-    }
-
-    #error-message {
-      color: red;
-      display: none;
-    }
-  </style>
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
-  <!-- Background Audio -->
-  <audio id="bg-audio" loop>
-    <source src="assets/Thefifthseat.mp3" type="audio/mpeg" />
-  </audio>
+  <div class="veil-bg" aria-hidden="true"></div>
 
-  <!-- Primary Riddle Container -->
-  <div class="veilcraft-container" id="veilcraft-container">
-    <h1 class="message">You have proven worthy again... for now<br>
-    One more step to unravel this weeks secret</h1>
-    
-    <img src="/veilcraft-archive/assets/wrartwa.PNG" alt="twr" class="artwork" id="ritual-image" />
+  <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
+  <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
+  <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
+  <div class="particles-container" id="particles-container" aria-hidden="true"></div>
 
-    <input type="text" id="final-answer" placeholder="Your answer..." />
-    <button onclick="checkFinalAnswer()">Submit</button>
-    <p id="error-message">Incorrect. Think deeper.</p>
-  </div>
+  <main class="veil-container">
+    <h1>Remember</h1>
 
-  <!-- Ritual Success Container -->
-  <div id="ritual-container">
-    <h1 class="message">Congratulations!</h1>
-    <p class="mystery-line">
-      Now gather your friends. Start the Ritual by clicking here and tell the word to my little helper.<br>
-      <em>But beware — we will need all of you.</em>
+    <p class="riddle-text">
+      1/1 - 01:40 / 04:43 &nbsp;&nbsp; _ _ _ _<br>
+      13/16 - 01:57 / 02:48 &nbsp;&nbsp; the _ _ _ _ _ _,<br>
+      5/13 - 01:28 / 02:20 &nbsp;&nbsp; _ _ _ _<br>
+      6/10 - 01:49 / 02:49 &nbsp;&nbsp; _ _ _’_ &nbsp; _ _ _ _.
     </p>
-    <a href="https://canary.discord.com/channels/1381795958848880701/1381795963626066173" target="_blank" class="btn" id="ritual-btn">
-      Start the Ritual
-    </a>
-  </div>
 
-  <!-- Background Layers -->
-  <div class="gradient-background">
-    <div class="gradient-sphere sphere-1" aria-hidden="true"></div>
-    <div class="gradient-sphere sphere-2" aria-hidden="true"></div>
-    <div class="gradient-sphere sphere-3" aria-hidden="true"></div>
-    <div class="glow" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
-    <div class="noise-overlay" aria-hidden="true"></div>
-    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
-  </div>
+    <p class="veil-text">
+      _ _ _ _ &nbsp; the &nbsp; _ _ _ _ _ _, &nbsp; _ _ _ _ &nbsp; _ _ _’_ &nbsp; _ _ _ _.
+    </p>
+
+    <p class="veil-text">
+      You know where to write it.
+    </p>
+  </main>
+
+  <audio id="bg-audio" loop>
+    <source src="assets/WRinstr.mp3" type="audio/mpeg" />
+  </audio>
 </body>
 </html>
