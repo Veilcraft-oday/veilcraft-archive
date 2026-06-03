@@ -25,7 +25,42 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+// Countdown
+const countdownEl = document.getElementById("countdown");
 
+if (countdownEl) {
+  const targetDate = new Date("2026-06-06T18:00:00").getTime();
+
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      countdownEl.innerHTML = "The veil has opened.";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) /
+      (1000 * 60)
+    );
+    const seconds = Math.floor(
+      (distance % (1000 * 60)) /
+      1000
+    );
+
+    countdownEl.innerHTML =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
   // Riddle code logic
   const riddleForm = document.getElementById("riddle-form");
   const riddleInput = document.getElementById("riddle-input");
