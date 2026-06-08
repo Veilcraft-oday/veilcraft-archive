@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const countdownEl = document.getElementById("countdown");
 
 if (countdownEl) {
-  const targetDate = new Date("2026-06-06T10:00:00").getTime();
+  const targetDate = new Date("2026-06-13T10:00:00").getTime();
 
   const updateCountdown = () => {
     const now = new Date().getTime();
