@@ -87,7 +87,22 @@ if (countdownEl) {
       }
     });
   }
+  // Video autoplay fallback
+const video = document.querySelector(".video-bg");
 
+if (video) {
+  video.muted = true;
+  video.play().catch(() => {
+    const startVideo = () => {
+      video.play();
+      document.removeEventListener("click", startVideo);
+      document.removeEventListener("touchstart", startVideo);
+    };
+
+    document.addEventListener("click", startVideo);
+    document.addEventListener("touchstart", startVideo);
+  });
+}
   // Music autoplay fallback
   const audio = document.getElementById("bg-audio");
   if (audio) {
